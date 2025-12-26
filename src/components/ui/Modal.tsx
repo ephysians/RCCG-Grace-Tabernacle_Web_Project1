@@ -10,30 +10,62 @@ interface ModalProps {
 export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
+  const firstFocusableRef = useRef<HTMLElement | null>(null)
+  const lastFocusableRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     if (isOpen) {
       previousFocusRef.current = document.activeElement as HTMLElement
-      modalRef.current?.focus()
+      
+      // Focus the first focusable element or the modal itself
+      setTimeout(() => {
+        const focusableElements = modalRef.current?.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+        if (focusableElements && focusableElements.length > 0) {
+          firstFocusableRef.current = focusableElements[0] as HTMLElement
+          lastFocusableRef.current = focusableElements[focusableElements.length - 1] as HTMLElement
+          firstFocusableRef.current?.focus()
+        } else {
+          modalRef.current?.focus()
+        }
+      }, 0)
     } else {
       previousFocusRef.current?.focus()
     }
   }, [isOpen])
 
   useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         onClose()
+      }
+      
+      // Focus trapping
+      if (event.key === 'Tab') {
+        if (event.shiftKey) {
+          // Shift + Tab
+          if (document.activeElement === firstFocusableRef.current) {
+            event.preventDefault()
+            lastFocusableRef.current?.focus()
+          }
+        } else {
+          // Tab
+          if (document.activeElement === lastFocusableRef.current) {
+            event.preventDefault()
+            firstFocusableRef.current?.focus()
+          }
+        }
       }
     }
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape)
+      document.addEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'hidden'
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape)
+      document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'unset'
     }
   }, [isOpen, onClose])
