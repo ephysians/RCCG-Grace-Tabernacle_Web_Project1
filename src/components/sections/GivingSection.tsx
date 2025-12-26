@@ -2,10 +2,12 @@ import React, { useState, useCallback } from 'react'
 import { givingConfig, GivingItem } from '@/config/giving.config'
 import { GivingCard } from '@/components/common/GivingCard'
 import { Modal } from '@/components/ui/Modal'
+import { usePaymentGateway } from '@/hooks/usePaymentGateway'
 
 export const GivingSection: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<GivingItem | null>(null)
-  const [isProcessing, setIsProcessing] = useState(false)
+  const [amount, setAmount] = useState<string>('')
+  const { processPayment, isProcessing, error, reset } = usePaymentGateway()
 
   const handleCardClick = useCallback((item: GivingItem) => {
     setSelectedItem(item)
@@ -13,31 +15,21 @@ export const GivingSection: React.FC = () => {
 
   const handleCloseModal = useCallback(() => {
     setSelectedItem(null)
-    setIsProcessing(false)
-  }, [])
+    setAmount('')
+    reset()
+  }, [reset])
 
   const handleProceedToPayment = useCallback(async () => {
-    if (!selectedItem) return
+    if (!selectedItem || !amount || parseFloat(amount) <= 0) return
     
-    setIsProcessing(true)
-    try {
-      // Placeholder function for payment integration
-      console.log(`Proceeding to payment for: ${selectedItem.name}`)
-      // TODO: Implement payment gateway integration
-      // await paymentService.initializePayment(selectedItem)
-      
-      // Simulate processing delay
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // For now, just log and close modal
+    const response = await processPayment(selectedItem.id, parseFloat(amount))
+    
+    if (response.success) {
+      // Payment successful - could show success message or redirect
       handleCloseModal()
-    } catch (error) {
-      console.error('Payment initialization failed:', error)
-      // TODO: Show error message to user
-    } finally {
-      setIsProcessing(false)
     }
-  }, [selectedItem, handleCloseModal])
+    // Error handling is managed by the hook
+  }, [selectedItem, amount, processPayment, handleCloseModal])
 
   return (
     <section className="py-16 bg-gray-50" aria-labelledby="giving-section-title">
@@ -80,11 +72,36 @@ export const GivingSection: React.FC = () => {
               <p className="text-gray-700 leading-relaxed mb-6">
                 {selectedItem.description}
               </p>
+              
+              <div className="mb-6">
+                <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-2">
+                  Amount (NGN)
+                </label>
+                <input
+                  id="amount"
+                  type="number"
+                  min="1"
+                  step="0.01"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  placeholder="Enter amount"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  aria-describedby={error ? 'payment-error' : undefined}
+                  disabled={isProcessing}
+                />
+              </div>
+
+              {error && (
+                <div id="payment-error" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-sm text-red-600" role="alert">{error}</p>
+                </div>
+              )}
+              
               <button
                 onClick={handleProceedToPayment}
-                disabled={isProcessing}
+                disabled={isProcessing || !amount || parseFloat(amount) <= 0}
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                aria-label={`Proceed to payment for ${selectedItem.name}`}
+                aria-label={`Proceed to payment for ${selectedItem.name} with amount ${amount} NGN`}
               >
                 {isProcessing ? (
                   <>
@@ -92,7 +109,7 @@ export const GivingSection: React.FC = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Processing...
+                    Processing Payment...
                   </>
                 ) : (
                   'Proceed to Payment'

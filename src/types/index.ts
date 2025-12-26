@@ -1,2 +1,4 @@
 export type { DevotionalItem, DevotionalConfig } from './devotional'
 export type { GivingItem } from '../config/giving.config'
+export type { PaymentRequest, PaymentResponse, PaymentGateway } from './payment'
+export { PaymentStatus } from './payment'
