@@ -1,0 +1,1 @@
+export type { DevotionalItem, DevotionalConfig } from './devotional'
