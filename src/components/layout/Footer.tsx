@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Social Links & Copyright */}
+        {/* Social Links, Give Now Button & Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-6 mb-4 md:mb-0">
@@ -84,9 +84,26 @@ export const Footer: React.FC = () => {
                 </a>
               ))}
             </div>
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} RCCG Grace Tabernacle. All rights reserved.
-            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <button
+                onClick={() => {
+                  const givingSection = document.getElementById('giving')
+                  if (givingSection) {
+                    givingSection.scrollIntoView({ behavior: 'smooth' })
+                  }
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black"
+                role="button"
+                aria-label="Scroll to giving section"
+              >
+                Give Now
+              </button>
+              
+              <p className="text-gray-400 text-sm">
+                © {new Date().getFullYear()} RCCG Grace Tabernacle. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>

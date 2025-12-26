@@ -6,7 +6,8 @@ import {
   VisionMissionSection,
   ServiceScheduleSection,
   NewsArticlesSection,
-  EventsSection
+  EventsSection,
+  GivingSection
 } from '@/components/sections'
 import {
   heroConfig,
@@ -34,6 +35,7 @@ export default function Home() {
           <ServiceScheduleSection services={serviceSchedule} />
           <NewsArticlesSection articles={newsArticles} />
           <EventsSection events={upcomingEvents} />
+          <GivingSection />
         </main>
       </Layout>
     </>

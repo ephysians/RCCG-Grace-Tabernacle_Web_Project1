@@ -32,7 +32,7 @@ export const GivingSection: React.FC = () => {
   }, [selectedItem, amount, processPayment, handleCloseModal])
 
   return (
-    <section className="py-16 bg-gray-50" aria-labelledby="giving-section-title">
+    <section id="giving" className="py-16 bg-gray-50" aria-labelledby="giving-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
           <h2 id="giving-section-title" className="text-3xl font-bold text-gray-900 mb-4">
