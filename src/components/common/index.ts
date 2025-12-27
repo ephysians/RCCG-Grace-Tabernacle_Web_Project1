@@ -1,2 +1,5 @@
 export { DevotionalCard } from './DevotionalCard'
 export { GivingCard } from './GivingCard'
+export { FellowshipCenterCard } from './FellowshipCenterCard'
+export { TestimonyCard } from './TestimonyCard'
+export { JoinChurchLinkCard } from './JoinChurchLinkCard'

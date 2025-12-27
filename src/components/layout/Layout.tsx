@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigation } from './Navigation'
 import { Footer } from './Footer'
+import { FloatingChatWidget } from '../ui/FloatingChatWidget'
 import { navigationConfig } from '@/config/navigation.config'
 
 interface LayoutProps {
@@ -15,6 +16,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <FloatingChatWidget />
     </div>
   )
 }
