@@ -8,6 +8,7 @@ import {
   EventsSection,
   GivingSection,
   OpenHeavensSection,
+  SalvationSection,
   PrayerRequestSection
 } from '@/components/sections'
 import {
@@ -36,6 +37,7 @@ export default function Home() {
       <EventsSection events={upcomingEvents} />
       <GivingSection />
       <OpenHeavensSection />
+      <SalvationSection />
       <PrayerRequestSection />
     </>
   )
