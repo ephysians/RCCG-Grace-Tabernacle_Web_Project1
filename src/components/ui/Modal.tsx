@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 
 interface ModalProps {
   isOpen: boolean
@@ -7,53 +7,65 @@ interface ModalProps {
   children: React.ReactNode
 }
 
+const FOCUSABLE_ELEMENTS = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
+
 export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
   const firstFocusableRef = useRef<HTMLElement | null>(null)
   const lastFocusableRef = useRef<HTMLElement | null>(null)
 
+  const updateFocusableElements = useCallback(() => {
+    if (!modalRef.current) return
+    
+    const focusableElements = modalRef.current.querySelectorAll(FOCUSABLE_ELEMENTS)
+    if (focusableElements.length > 0) {
+      firstFocusableRef.current = focusableElements[0] as HTMLElement
+      lastFocusableRef.current = focusableElements[focusableElements.length - 1] as HTMLElement
+    }
+  }, [])
+
   useEffect(() => {
     if (isOpen) {
       previousFocusRef.current = document.activeElement as HTMLElement
+      updateFocusableElements()
       
-      // Focus the first focusable element or the modal itself
-      setTimeout(() => {
-        const focusableElements = modalRef.current?.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        )
-        if (focusableElements && focusableElements.length > 0) {
-          firstFocusableRef.current = focusableElements[0] as HTMLElement
-          lastFocusableRef.current = focusableElements[focusableElements.length - 1] as HTMLElement
-          firstFocusableRef.current?.focus()
-        } else {
-          modalRef.current?.focus()
-        }
-      }, 0)
-    } else {
-      previousFocusRef.current?.focus()
+      // Focus management with slight delay for DOM updates
+      const timeoutId = setTimeout(() => {
+        firstFocusableRef.current?.focus() || modalRef.current?.focus()
+      }, 100)
+      
+      return () => clearTimeout(timeoutId)
+    } else if (previousFocusRef.current) {
+      previousFocusRef.current.focus()
     }
-  }, [isOpen])
+  }, [isOpen, updateFocusableElements])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (!isOpen) return
+      
       if (event.key === 'Escape') {
+        event.preventDefault()
         onClose()
+        return
       }
       
-      // Focus trapping
+      // Enhanced focus trapping
       if (event.key === 'Tab') {
+        updateFocusableElements()
+        
+        if (!firstFocusableRef.current || !lastFocusableRef.current) return
+        
         if (event.shiftKey) {
-          // Shift + Tab
           if (document.activeElement === firstFocusableRef.current) {
             event.preventDefault()
-            lastFocusableRef.current?.focus()
+            lastFocusableRef.current.focus()
           }
         } else {
-          // Tab
           if (document.activeElement === lastFocusableRef.current) {
             event.preventDefault()
-            firstFocusableRef.current?.focus()
+            firstFocusableRef.current.focus()
           }
         }
       }
@@ -62,13 +74,15 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'hidden'
+      document.body.setAttribute('aria-hidden', 'true')
     }
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'unset'
+      document.body.removeAttribute('aria-hidden')
     }
-  }, [isOpen, onClose])
+  }, [isOpen, onClose, updateFocusableElements])
 
   const handleBackdropClick = (event: React.MouseEvent) => {
     if (event.target === event.currentTarget) {
@@ -88,8 +102,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
     >
       <div
         ref={modalRef}
-        className="relative w-full max-w-2xl max-h-[90vh] mx-4 bg-white rounded-lg shadow-xl overflow-hidden"
+        className="relative w-full max-w-2xl max-h-[90vh] mx-4 bg-white rounded-lg shadow-xl overflow-hidden sm:mx-6 lg:mx-8"
         tabIndex={-1}
+        role="document"
       >
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 id="modal-title" className="text-xl font-semibold text-gray-900">
