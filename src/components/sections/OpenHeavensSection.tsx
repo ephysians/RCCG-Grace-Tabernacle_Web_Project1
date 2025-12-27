@@ -50,11 +50,7 @@ export const OpenHeavensSection: React.FC = () => {
                 {selectedDevotional.day}
               </span>
               <time dateTime={selectedDevotional.date} className="font-medium">
-                {new Date(selectedDevotional.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
+                {selectedDevotional.date}
               </time>
             </div>
             <div className="prose prose-lg max-w-none">
