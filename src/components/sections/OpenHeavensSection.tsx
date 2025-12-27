@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { openHeavensConfig } from '../../config/openHeavens.config'
 import { DevotionalItem } from '../../types/devotional'
 import { DevotionalCard } from '../common/DevotionalCard'
@@ -7,27 +7,27 @@ import { Modal } from '../ui/Modal'
 export const OpenHeavensSection: React.FC = () => {
   const [selectedDevotional, setSelectedDevotional] = useState<DevotionalItem | null>(null)
 
-  const handleCardClick = (devotional: DevotionalItem) => {
+  const handleCardClick = useCallback((devotional: DevotionalItem) => {
     setSelectedDevotional(devotional)
-  }
+  }, [])
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setSelectedDevotional(null)
-  }
+  }, [])
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50" aria-labelledby="devotional-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+        <header className="text-center mb-12">
+          <h2 id="devotional-section-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Open Heavens
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Daily devotionals to strengthen your faith journey
           </p>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {openHeavensConfig.devotionals.map((devotional) => (
             <DevotionalCard
               key={devotional.id}
@@ -44,15 +44,23 @@ export const OpenHeavensSection: React.FC = () => {
         title={selectedDevotional?.title || ''}
       >
         {selectedDevotional && (
-          <div className="space-y-4">
-            <div className="flex items-center justify-between text-sm text-gray-600">
-              <span className="font-medium">{selectedDevotional.day}</span>
-              <span>{selectedDevotional.date}</span>
+          <div className="space-y-6">
+            <div className="flex items-center justify-between text-sm text-gray-600 pb-4 border-b border-gray-200">
+              <span className="font-medium bg-primary-50 text-primary-700 px-3 py-1 rounded-full">
+                {selectedDevotional.day}
+              </span>
+              <time dateTime={selectedDevotional.date} className="font-medium">
+                {new Date(selectedDevotional.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
             </div>
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed">
+              <div className="text-gray-700 leading-relaxed whitespace-pre-line">
                 {selectedDevotional.content}
-              </p>
+              </div>
             </div>
           </div>
         )}

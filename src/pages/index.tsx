@@ -1,13 +1,14 @@
 import React from 'react'
 import Head from 'next/head'
-import { Layout } from '@/components/layout'
 import {
   HeroSection,
   VisionMissionSection,
   ServiceScheduleSection,
   NewsArticlesSection,
   EventsSection,
-  GivingSection
+  GivingSection,
+  OpenHeavensSection,
+  PrayerRequestSection
 } from '@/components/sections'
 import {
   heroConfig,
@@ -28,16 +29,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Layout>
-        <main>
-          <HeroSection config={heroConfig} />
-          <VisionMissionSection items={visionMissionCommunity} />
-          <ServiceScheduleSection services={serviceSchedule} />
-          <NewsArticlesSection articles={newsArticles} />
-          <EventsSection events={upcomingEvents} />
-          <GivingSection />
-        </main>
-      </Layout>
+      <HeroSection config={heroConfig} />
+      <VisionMissionSection items={visionMissionCommunity} />
+      <ServiceScheduleSection services={serviceSchedule} />
+      <NewsArticlesSection articles={newsArticles} />
+      <EventsSection events={upcomingEvents} />
+      <GivingSection />
+      <OpenHeavensSection />
+      <PrayerRequestSection />
     </>
   )
 }

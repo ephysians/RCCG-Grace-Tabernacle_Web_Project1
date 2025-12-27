@@ -126,7 +126,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
         onClick={handleToggleDropdown}
         onKeyDown={handleKeyDown}
         aria-expanded={isDropdownOpen}
-        aria-haspopup=\"true\"
+        aria-haspopup="true"
         aria-controls={`dropdown-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
       >
         {item.label}

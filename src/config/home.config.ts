@@ -43,7 +43,7 @@ export interface Event {
 
 export const heroConfig: HeroConfig = {
   headline: "Welcome to RCCG Grace Tabernacle",
-  subtext: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+  subtext: "A place of worship, fellowship, and spiritual growth. Join our vibrant community as we grow together in faith, love, and service to God and our community.",
   primaryCTA: {
     text: "Join Us This Sunday",
     href: "/contact"
@@ -57,17 +57,17 @@ export const heroConfig: HeroConfig = {
 export const visionMissionCommunity: CardItem[] = [
   {
     title: "Our Vision",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "To be a church that transforms lives and communities through the power of God's love, creating disciples who make disciples.",
     icon: "👁️"
   },
   {
     title: "Our Mission",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    description: "To worship God, build believers, and reach the world with the Gospel of Jesus Christ through authentic fellowship and service.",
     icon: "🎯"
   },
   {
     title: "Our Community",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    description: "A diverse family united in Christ, supporting one another through life's journey with love, prayer, and practical care.",
     icon: "🤝"
   }
 ]
@@ -77,43 +77,43 @@ export const serviceSchedule: ServiceSchedule[] = [
     name: "Sunday Service",
     day: "Sunday",
     time: "10:00 AM - 12:00 PM",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    description: "Join us for worship, prayer, and biblical teaching in our main sanctuary."
   },
   {
     name: "Bible Study",
     day: "Wednesday",
     time: "7:00 PM - 8:30 PM",
-    description: "Sed do eiusmod tempor incididunt ut labore et dolore."
+    description: "Deepen your understanding of God's Word through interactive study and discussion."
   },
   {
     name: "Prayer Meeting",
     day: "Friday",
     time: "6:00 PM - 7:00 PM",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation."
+    description: "Come together in corporate prayer for our church, community, and world."
   }
 ]
 
 export const newsArticles: NewsArticle[] = [
   {
     id: "1",
-    title: "Lorem Ipsum Church Event Success",
-    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+    title: "Annual Harvest Thanksgiving Service",
+    excerpt: "Join us for our special Harvest Thanksgiving service as we celebrate God's faithfulness and provision throughout the year.",
     date: "2024-01-15",
-    href: "/news/lorem-ipsum-event"
+    href: "/news/harvest-thanksgiving-service"
   },
   {
     id: "2",
-    title: "Community Outreach Program",
-    excerpt: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+    title: "Community Outreach Program Launch",
+    excerpt: "We're excited to announce the launch of our new community outreach program, reaching families in need with practical support.",
     date: "2024-01-10",
-    href: "/news/community-outreach"
+    href: "/news/community-outreach-launch"
   },
   {
     id: "3",
-    title: "New Ministry Launch",
-    excerpt: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
+    title: "Youth Ministry Expansion",
+    excerpt: "Our youth ministry is growing! Learn about new programs and activities designed to engage and disciple young people.",
     date: "2024-01-05",
-    href: "/news/new-ministry"
+    href: "/news/youth-ministry-expansion"
   }
 ]
 
@@ -124,7 +124,7 @@ export const upcomingEvents: Event[] = [
     date: "2024-02-15",
     time: "9:00 AM",
     location: "Main Sanctuary",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    description: "A special conference featuring guest speakers, workshops, and fellowship opportunities for spiritual growth."
   },
   {
     id: "2",
@@ -132,7 +132,7 @@ export const upcomingEvents: Event[] = [
     date: "2024-02-20",
     time: "6:00 PM",
     location: "Youth Hall",
-    description: "Sed do eiusmod tempor incididunt ut labore et dolore."
+    description: "Monthly youth gathering with games, worship, and biblical teaching designed for teenagers and young adults."
   },
   {
     id: "3",
@@ -140,6 +140,6 @@ export const upcomingEvents: Event[] = [
     date: "2024-02-25",
     time: "8:00 AM",
     location: "Community Center",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation."
+    description: "Join us as we serve our local community through various volunteer activities and outreach initiatives."
   }
 ]

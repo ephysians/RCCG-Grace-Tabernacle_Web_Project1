@@ -21,8 +21,9 @@ export const prayerRequestSchema = z.object({
     }),
   
   believerStatus: z
-    .enum(['Born Again', 'Not Born Again'], {
-      required_error: 'Please select your believer status'
+    .enum(['Born Again', 'Not Born Again'])
+    .refine(val => val !== undefined, {
+      message: 'Please select your believer status'
     }),
   
   message: z
