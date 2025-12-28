@@ -61,13 +61,13 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
               alt="Logo"
               className="w-10 h-10"
             />
-            <span className="text-2xl font-normal text-white" style={{ fontFamily: '"Dancing Script", cursive' }}>
+            <span className="text-4xl font-normal text-white font-dancing">
               Grace Tabernacle
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 text-white">
+          <div className="hidden md:flex items-center space-x-1 text-white font-cinzel">
             {items.map(item => (
               <NavigationItem key={item.label} item={item} />
             ))}

@@ -70,6 +70,8 @@ module.exports = {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        dancing: ['Dancing Script', 'cursive'],
+        cinzel: ['Cinzel', 'serif'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],
