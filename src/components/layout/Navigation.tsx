@@ -47,35 +47,63 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
   }
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50" role="navigation" aria-label="Main navigation">
+    <nav
+      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
+      role="navigation"
+      aria-label="Main navigation"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary-600">RCCG</span>
-            <span className="text-lg font-semibold text-gray-800">Grace Tabernacle</span>
+            <img
+              src="/assets/images/Logo.png"
+              alt="Logo"
+              className="w-10 h-10"
+            />
+            <span className="text-2xl font-normal text-white" style={{ fontFamily: '"Dancing Script", cursive' }}>
+              Grace Tabernacle
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {items.map((item) => (
+          <div className="hidden md:flex items-center space-x-1 text-white">
+            {items.map(item => (
               <NavigationItem key={item.label} item={item} />
             ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+            className="md:hidden p-2 rounded-md text-white hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
-            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={
+              mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
+            }
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
               {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -83,11 +111,14 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div id="mobile-menu" className="md:hidden py-4 border-t border-gray-200">
-            {items.map((item) => (
-              <NavigationItem 
-                key={item.label} 
-                item={item} 
+          <div
+            id="mobile-menu"
+            className="md:hidden py-4 border-t border-gray-200"
+          >
+            {items.map(item => (
+              <NavigationItem
+                key={item.label}
+                item={item}
                 isMobile={true}
                 onMobileMenuClose={handleMobileMenuClose}
               />
@@ -96,5 +127,5 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
         )}
       </div>
     </nav>
-  )
+  );
 }

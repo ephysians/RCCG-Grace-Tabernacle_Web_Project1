@@ -53,30 +53,64 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
     }
   }
 
-  if (!item.children) {
-    // Simple navigation link
-    const linkClasses = isMobile
-      ? `block px-4 py-2 text-base font-medium transition-colors focus:outline-none focus:bg-gray-50 focus:text-primary-600 ${
-          isActive(item.href)
-            ? 'text-primary-600 bg-primary-50'
-            : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
-        }`
-      : `px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 ${
-          isActive(item.href)
-            ? 'text-primary-600 bg-primary-50'
-            : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
-        }`
+  // if (!item.children) {
+  //   // Simple navigation link
+  //   const linkClasses = isMobile
+  //     ? `block px-4 py-2 text-base font-medium transition-colors focus:outline-none focus:bg-gray-50 focus:text-primary-600 ${
+  //         isActive(item.href)
+  //           ? 'text-primary-600 bg-primary-50'
+  //           : 'text-white hover:text-primary-600 hover:bg-gray-50'
+  //       }`
+  //     : `px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 ${
+  //         isActive(item.href)
+  //           ? 'text-primary-600 bg-primary-50'
+  //           : 'text-white hover:text-primary-600 hover:bg-gray-50'
+  //       }`
 
-    return (
-      <Link
-        href={item.href}
-        className={linkClasses}
-        onClick={onMobileMenuClose}
-      >
-        {item.label}
-      </Link>
-    )
-  }
+  //   return (
+  //     <Link
+  //       href={item.href}
+  //       className={linkClasses}
+  //       onClick={onMobileMenuClose}
+  //     >
+  //       {item.label}
+  //     </Link>
+  //   )
+  // }
+
+  if (!item.children) {
+  // Simple navigation link
+  const linkClasses = isMobile
+    ? `block px-4 py-2 text-base font-medium transition-colors focus:outline-none focus:bg-gray-50 focus:text-primary-600 ${
+        isActive(item.href)
+          ? 'text-primary-600 '
+          : 'text-gray-100 hover:text-primary-600 hover:bg-gray-50'
+      }`
+    : `
+      relative px-4 py-2 text-sm font-medium text-white
+      transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+
+      after:absolute after:left-0 after:-bottom-1
+      after:h-[2px] after:w-full after:bg-white
+      after:scale-x-0 after:origin-left
+      after:transition-transform after:duration-300 after:ease-out
+      hover:after:scale-x-100
+      focus-visible:after:scale-x-100
+
+      ${isActive(item.href) ? 'after:scale-x-100' : ''}
+    `
+
+  return (
+    <Link
+      href={item.href}
+      className={linkClasses}
+      onClick={onMobileMenuClose}
+    >
+      {item.label}
+    </Link>
+  )
+}
+
 
   // Navigation item with dropdown
   if (isMobile) {
@@ -84,7 +118,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
       <div>
         <button
           onClick={handleToggleDropdown}
-          className="w-full flex items-center justify-between px-4 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 focus:text-primary-600"
+          className="w-full flex items-center justify-between px-4 py-2 text-base font-medium text-white hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 focus:text-primary-600"
           aria-expanded={isDropdownOpen}
           aria-controls={`mobile-dropdown-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
           onKeyDown={handleKeyDown}
@@ -121,7 +155,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
         className={`px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 ${
           isActive(item.href) || isDropdownOpen
             ? 'text-primary-600 bg-primary-50'
-            : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+            : 'text-white hover:text-primary-600 hover:bg-gray-50'
         }`}
         onClick={handleToggleDropdown}
         onKeyDown={handleKeyDown}

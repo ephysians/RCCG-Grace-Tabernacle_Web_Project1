@@ -10,7 +10,13 @@
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "build:analyze": "ANALYZE=true next build",
+    "build:production": "NODE_ENV=production next build",
+    "preview": "next build && next start",
+    "clean": "rm -rf .next out",
+    "validate": "npm run type-check && npm run lint && npm run format:check",
+    "pre-deploy": "npm run validate && npm run build:production"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
