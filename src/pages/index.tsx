@@ -3,7 +3,7 @@ import Head from 'next/head'
 import {
   HeroSection,
   AboutSection,
-  VisionMissionSection,
+  // VisionMissionSection,
   ServiceScheduleSection,
   NewsArticlesSection,
   EventsSection,
@@ -14,7 +14,7 @@ import {
 } from '@/components/sections'
 import {
   heroConfig,
-  visionMissionCommunity,
+  // visionMissionCommunity,
   serviceSchedule,
   newsArticles,
   upcomingEvents
@@ -33,7 +33,7 @@ export default function Home() {
       
       <HeroSection config={heroConfig} />
       <AboutSection />
-      <VisionMissionSection items={visionMissionCommunity} />
+      {/* <VisionMissionSection items={visionMissionCommunity} /> */}
       <ServiceScheduleSection services={serviceSchedule} />
       <NewsArticlesSection articles={newsArticles} />
       <EventsSection events={upcomingEvents} />

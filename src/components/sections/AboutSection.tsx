@@ -13,7 +13,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className = '' }) =>
           {/* Content */}
           <div>
             <header className="mb-8">
-              <h2 id="about-title" className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-cinzel">
+              <h2 id="about-title" className="text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 font-cinzel">
                 About RCCG Grace Tabernacle
               </h2>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
@@ -62,7 +62,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className = '' }) =>
           <div className="relative">
             <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-lg">
               <img
-                src="/assets/images/building.png"
+                src="/assets/images/bg3.png"
                 alt="RCCG Grace Tabernacle Church Building"
                 className="w-full h-full object-cover"
               />
