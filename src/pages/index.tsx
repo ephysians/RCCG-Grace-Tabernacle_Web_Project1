@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import {
   HeroSection,
+  AboutSection,
   VisionMissionSection,
   ServiceScheduleSection,
   NewsArticlesSection,
@@ -31,6 +32,7 @@ export default function Home() {
       </Head>
       
       <HeroSection config={heroConfig} />
+      <AboutSection />
       <VisionMissionSection items={visionMissionCommunity} />
       <ServiceScheduleSection services={serviceSchedule} />
       <NewsArticlesSection articles={newsArticles} />

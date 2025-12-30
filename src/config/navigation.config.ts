@@ -1,3 +1,5 @@
+import { aboutNavigationItems } from './about.config'
+
 export interface NavigationItem {
   label: string
   href: string
@@ -10,8 +12,9 @@ export const navigationConfig: NavigationItem[] = [
     href: '/',
   },
   {
-    label: 'About Us',
+    label: 'About',
     href: '/about',
+    children: aboutNavigationItems,
   },
   {
     label: 'Resources',
