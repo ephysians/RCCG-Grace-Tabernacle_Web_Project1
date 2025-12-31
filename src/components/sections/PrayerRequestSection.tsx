@@ -13,7 +13,7 @@ export const PrayerRequestSection: React.FC = () => {
   }, [])
 
   return (
-    <section className="py-16 bg-primary-50" aria-labelledby="prayer-section-title">
+    <section className="py-16 bg-primary-50 border-b border-gray-200" aria-labelledby="prayer-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 id="prayer-section-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

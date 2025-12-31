@@ -125,63 +125,19 @@ export default function EldershipPage() {
               </div>
             </div>
 
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Biblical Qualifications</h3>
-              <p className="text-gray-600 mb-4">
-                Our leadership standards are based on the biblical qualifications found in 1 Timothy 3:1-13 and Titus 1:5-9:
-              </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Character Requirements:</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Above reproach</li>
-                    <li>• Faithful spouse (if married)</li>
-                    <li>• Temperate and self-controlled</li>
-                    <li>• Respectable and hospitable</li>
-                    <li>• Not given to drunkenness</li>
-                    <li>• Not violent but gentle</li>
-                    <li>• Not quarrelsome</li>
-                    <li>• Not a lover of money</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Spiritual Requirements:</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Able to teach (for elders)</li>
-                    <li>• Not a recent convert</li>
-                    <li>• Good reputation with outsiders</li>
-                    <li>• Manages own family well</li>
-                    <li>• Holds firmly to trustworthy message</li>
-                    <li>• Not overbearing or quick-tempered</li>
-                    <li>• Loves what is good</li>
-                    <li>• Upright, holy, and disciplined</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
             <div className="text-center">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Interested in Leadership?</h3>
               <p className="text-gray-600 mb-6">
                 If you feel called to leadership in God's house, we encourage you to speak with our pastoral team 
                 about beginning the leadership development journey.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="mailto:leadership@gracetabernacle.org" 
-                  className="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-                >
-                  <span className="mr-2" aria-hidden="true">👑</span>
-                  Inquire About Leadership
-                </a>
-                <a 
-                  href="/resources/leadership-handbook.pdf" 
-                  className="inline-flex items-center px-8 py-3 bg-white text-primary-600 font-medium rounded-lg border-2 border-primary-600 hover:bg-primary-50 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-                >
-                  <span className="mr-2" aria-hidden="true">📚</span>
-                  Download Leadership Handbook
-                </a>
-              </div>
+              <a 
+                href="mailto:leadership@gracetabernacle.org" 
+                className="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              >
+                <span className="mr-2" aria-hidden="true">👑</span>
+                Inquire About Leadership
+              </a>
             </div>
           </div>
         </div>

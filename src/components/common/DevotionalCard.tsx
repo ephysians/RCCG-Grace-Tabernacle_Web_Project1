@@ -28,7 +28,7 @@ export const DevotionalCard: React.FC<DevotionalCardProps> = ({ devotional, onCl
     >
       <div className="aspect-video bg-gray-200 overflow-hidden flex items-center justify-center">
         <img
-          src={devotional.image}
+          src="/assets/images/openHeavenImg.png"
           alt={devotional.title}
           className="w-full h-full object-cover"
           loading="lazy"

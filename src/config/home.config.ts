@@ -76,20 +76,20 @@ export const serviceSchedule: ServiceSchedule[] = [
   {
     name: "Sunday Service",
     day: "Sunday",
-    time: "10:00 AM - 12:00 PM",
-    description: "Join us for worship, prayer, and biblical teaching in our main sanctuary."
+    time: "Sunday School: 8:00 AM - 8:45 AM | Main Service: 8:45 AM - 10:00 AM | Yoruba Service: 8:45 AM - 10:00 AM",
+    description: "Join us for Sunday school, main worship service, and Yoruba service running simultaneously."
   },
   {
-    name: "Bible Study",
-    day: "Wednesday",
-    time: "7:00 PM - 8:30 PM",
-    description: "Deepen your understanding of God's Word through interactive study and discussion."
-  },
-  {
-    name: "Prayer Meeting",
-    day: "Friday",
+    name: "Digging Deep",
+    day: "Tuesday",
     time: "6:00 PM - 7:00 PM",
-    description: "Come together in corporate prayer for our church, community, and world."
+    description: "Deepen your understanding of God's Word through interactive Bible study and discussion."
+  },
+  {
+    name: "Faith Clinic",
+    day: "Thursday",
+    time: "6:00 PM - 7:00 PM",
+    description: "Come together for prayer, healing, and building faith in our corporate prayer meeting."
   }
 ]
 
