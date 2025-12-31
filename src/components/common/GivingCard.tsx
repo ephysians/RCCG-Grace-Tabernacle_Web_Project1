@@ -22,7 +22,7 @@ export const GivingCard: React.FC<GivingCardProps> = ({ item, onClick }) => {
       role="button"
       aria-label={`Learn more about ${item.name}`}
     >
-      <div className="relative h-48 w-full">
+      <div className="relative h-[200px] w-full">
         <Image
           src={item.image}
           alt={item.name}
