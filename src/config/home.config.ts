@@ -84,7 +84,6 @@ export const serviceSchedule: ServiceSchedule[] = [
     name: 'Digging Deep',
     day: 'Tuesday',
     time: '6:00 PM - 7:00 PM',
-    time2: '',
     description:
       "Deepen your understanding of God's Word through interactive Bible study and discussion.",
   },
@@ -92,7 +91,6 @@ export const serviceSchedule: ServiceSchedule[] = [
     name: 'Faith Clinic',
     day: 'Thursday',
     time: '6:00 PM - 7:00 PM',
-    time2: '',
     description:
       'Come together for prayer, healing, and building faith in our corporate prayer meeting.',
   },
@@ -100,27 +98,30 @@ export const serviceSchedule: ServiceSchedule[] = [
 
 export const newsArticles: NewsArticle[] = [
   {
-    id: "1",
-    title: "Annual Harvest Thanksgiving Service",
-    excerpt: "Join us for our special Harvest Thanksgiving service as we celebrate God's faithfulness and provision throughout the year.",
-    date: "2024-01-15",
-    href: "/news/harvest-thanksgiving-service"
+    id: '1',
+    title: 'Monthly Thanks giving Service',
+    excerpt:
+      "Join us for our special monthly Thanks giving Service as we celebrate God's faithfulness and provision throughout the year.",
+    date: '2024-01-15',
+    href: '/news/harvest-thanksgiving-service',
   },
   {
-    id: "2",
-    title: "Community Outreach Program Launch",
-    excerpt: "We're excited to announce the launch of our new community outreach program, reaching families in need with practical support.",
-    date: "2024-01-10",
-    href: "/news/community-outreach-launch"
+    id: '2',
+    title: 'Community Outreach Program Launch',
+    excerpt:
+      "We're excited to announce the launch of our new community outreach program, reaching families in need with practical support.",
+    date: '2024-01-10',
+    href: '/news/community-outreach-launch',
   },
   {
-    id: "3",
-    title: "Youth Ministry Expansion",
-    excerpt: "Our youth ministry is growing! Learn about new programs and activities designed to engage and disciple young people.",
-    date: "2024-01-05",
-    href: "/news/youth-ministry-expansion"
-  }
-]
+    id: '3',
+    title: 'Youth Ministry Expansion',
+    excerpt:
+      'Our youth ministry is growing! Learn about new programs and activities designed to engage and disciple young people.',
+    date: '2024-01-05',
+    href: '/news/youth-ministry-expansion',
+  },
+];
 
 export const upcomingEvents: Event[] = [
   {

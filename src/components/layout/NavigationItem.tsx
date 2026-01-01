@@ -81,13 +81,13 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
   if (!item.children) {
   // Simple navigation link
   const linkClasses = isMobile
-    ? `block px-4 py-2 text-base font-medium transition-colors focus:outline-none focus:bg-gray-50 focus:text-primary-600 font-cinzel ${
+    ? `block px-4 py-2 text-base font-medium transition-colors focus:outline-none focus:bg-gray-50 focus:text-primary-600 font-sans ${
         isActive(item.href)
           ? 'text-primary-600 '
           : 'text-gray-100 hover:text-primary-600 hover:bg-gray-50'
       }`
     : `
-      relative px-4 py-2 text-sm font-medium text-white font-cinzel
+      relative px-4 py-2 text-sm font-medium text-white font-sans
       transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
 
       after:absolute after:left-0 after:-bottom-1
@@ -118,7 +118,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
       <div>
         <button
           onClick={handleToggleDropdown}
-          className="w-full flex items-center justify-between px-4 py-2 text-base font-medium text-white font-cinzel hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 focus:text-primary-600"
+          className="w-full flex items-center justify-between px-4 py-2 text-base font-medium text-white font-sans hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 focus:text-primary-600"
           aria-expanded={isDropdownOpen}
           aria-controls={`mobile-dropdown-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
           onKeyDown={handleKeyDown}
@@ -153,7 +153,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
       <button
         ref={buttonRef}
         className={`
-          relative px-4 py-2 text-sm font-medium text-white font-cinzel
+          relative px-4 py-2 text-sm font-medium text-white font-sans
           transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
           
           after:absolute after:left-0 after:-bottom-1

@@ -13,31 +13,31 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className = '' }) =>
           {/* Content */}
           <div>
             <header className="mb-8">
-              <h2 id="about-title" className="text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 font-cinzel">
+              <h2 id="about-title" className="text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 font-sans">
                 About RCCG Grace Tabernacle
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sans">
                 A vibrant Christian community committed to spreading the Gospel and serving with love.
               </p>
             </header>
 
             <div className="space-y-6">
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed font-sans">
                 RCCG Grace Tabernacle stands as a beacon of hope and faith in our community. We are more than just a church; we are a family united by our love for Jesus Christ and our commitment to living out His teachings in our daily lives.
               </p>
               
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed font-sans">
                 As a parish of the Redeemed Christian Church of God, we carry forward a rich heritage of holiness, evangelism, and spiritual excellence. Our doors are always open, our hearts are always ready to receive, and our hands are always extended in fellowship.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
                 <div className="bg-primary-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-primary-800 mb-2">Founded</h3>
-                  <p className="text-primary-700">Established with a heart for community</p>
+                  <h3 className="font-semibold text-primary-800 mb-2 font-sans">Founded</h3>
+                  <p className="text-primary-700 font-sans">Established with a heart for community</p>
                 </div>
                 <div className="bg-primary-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-primary-800 mb-2">Affiliation</h3>
-                  <p className="text-primary-700">Redeemed Christian Church of God</p>
+                  <h3 className="font-semibold text-primary-800 mb-2 font-sans">Affiliation</h3>
+                  <p className="text-primary-700 font-sans">Redeemed Christian Church of God</p>
                 </div>
               </div>
 

@@ -89,7 +89,10 @@ export const Accordion: React.FC<AccordionProps> = ({
         const buttonId = `button-${item.id}`
 
         return (
-          <div key={item.id} className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div
+            key={item.id}
+            className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
             <h4>
               <button
                 ref={setButtonRef(item.id)}
@@ -99,14 +102,17 @@ export const Accordion: React.FC<AccordionProps> = ({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggleItem(item.id)}
-                onKeyDown={(e) => handleKeyDown(e, item.id)}
+                onKeyDown={e => handleKeyDown(e, item.id)}
               >
                 <div className="flex items-center justify-between">
-                  <span className={`${getTitleSize()} text-gray-900 pr-4 leading-relaxed`}>
-                    {showNumbers && `${index + 1}. `}{item.title}
+                  <span
+                    className={`${getTitleSize()} text-gray-900 pr-4 leading-relaxed font-sans`}
+                  >
+                    {showNumbers && `${index + 1}. `}
+                    {item.title}
                   </span>
                   <svg
-                    className={`w-5 h-5 text-gray-500 transition-transform flex-shrink-0 ${
+                    className={`w-5 h-5 text-gray-500 transition-transform flex-shrink-0 font-sans ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                     fill="none"
@@ -114,7 +120,12 @@ export const Accordion: React.FC<AccordionProps> = ({
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </div>
               </button>
@@ -123,23 +134,27 @@ export const Accordion: React.FC<AccordionProps> = ({
               id={panelId}
               role="region"
               aria-labelledby={buttonId}
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              className={`overflow-hidden transition-all duration-300 ease-in-out font-sans ${
                 isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className={`${getContentPadding()} bg-gray-50 border-t border-gray-200`}>
-                <p className={`${getContentSize()} text-gray-700 leading-relaxed ${item.scripture ? 'mb-4' : ''}`}>
+              <div
+                className={`${getContentPadding()} bg-gray-50 border-t border-gray-200`}
+              >
+                <p
+                  className={`${getContentSize()} text-gray-700 leading-relaxed font-sans ${item.scripture ? 'mb-4' : ''}`}
+                >
                   {item.content}
                 </p>
                 {item.scripture && (
-                  <blockquote className="border-l-4 border-primary-500 pl-4 italic text-primary-700 bg-primary-50 py-3 rounded-r">
+                  <blockquote className="border-l-4 border-primary-500 pl-4 italic text-primary-700 bg-primary-50 py-3 rounded-r font-sans">
                     {item.scripture}
                   </blockquote>
                 )}
               </div>
             </div>
           </div>
-        )
+        );
       })}
     </div>
   )

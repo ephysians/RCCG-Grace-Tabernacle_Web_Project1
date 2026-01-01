@@ -21,17 +21,20 @@ export const navigationConfig: NavigationItem[] = [
     href: '/resources',
     children: [
       { label: 'Gallery', href: '/gallery' },
-      { label: 'Join Live Service', href: '/live-service' },
+      // { label: 'Join Live Service', href: '/live-service' },
+      { label: 'News & Updates', href: '/article' },
+      { label: 'Daily devotional', href: '/article' },
+      
     ],
   },
   {
     label: 'FAQ',
     href: '/faq',
   },
-  {
-    label: 'News & Updates',
-    href: '/news',
-  },
+  // {
+  //   label: 'News & Updates',
+  //   href: '/news',
+  // },
   {
     label: 'Contact',
     href: '/contact',
@@ -41,7 +44,6 @@ export const navigationConfig: NavigationItem[] = [
     href: '/ministries',
     children: [
       { label: 'Children Ministry', href: '/ministries/children' },
-      { label: 'Bible Study', href: '/ministries/bible-study' },
       { label: 'Elders Ministry', href: '/ministries/elders' },
       { label: "Men's Fellowship", href: '/ministries/mens-fellowship' },
       { label: "Women's Fellowship", href: '/ministries/womens-fellowship' },
@@ -51,4 +53,4 @@ export const navigationConfig: NavigationItem[] = [
     label: 'Join Live Service',
     href: '/live-service',
   },
-]
+];

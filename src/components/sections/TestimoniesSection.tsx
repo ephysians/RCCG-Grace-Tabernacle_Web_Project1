@@ -29,13 +29,13 @@ export const TestimoniesSection: React.FC<TestimoniesSectionProps> = ({
   const regularTestimonies = filteredTestimonies.filter(testimony => !testimony.featured)
 
   return (
-    <section className={`py-16 bg-white ${className}`} aria-labelledby="testimonies-heading">
+    <section className={`py-16 bg-primary-700 ${className}`} aria-labelledby="testimonies-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
-          <h2 id="testimonies-heading" className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+          <h2 id="testimonies-heading" className="text-3xl font-bold text-gray-900 sm:text-4xl mt-14 mb-3">
             Testimonies of Faith
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
             Hear the amazing stories of God's faithfulness and power in the lives of our church family members. 
             These testimonies inspire and encourage us all in our faith journey.
           </p>
@@ -100,7 +100,7 @@ export const TestimoniesSection: React.FC<TestimoniesSectionProps> = ({
         {/* No testimonies message */}
         {filteredTestimonies.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">
+            <p className="text-gray-100 text-lg">
               No testimonies found for the selected category.
             </p>
           </div>

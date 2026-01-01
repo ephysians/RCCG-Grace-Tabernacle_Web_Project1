@@ -11,13 +11,13 @@ export const Footer: React.FC = () => {
           {/* Footer Sections */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="text-lg font-semibold mb-4">{section.title}</h3>
+              <h3 className="text-lg font-semibold mb-4 font-sans">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
+                      className="text-gray-300 hover:text-white transition-colors duration-200 font-sans"
                     >
                       {link.label}
                     </Link>
@@ -29,13 +29,13 @@ export const Footer: React.FC = () => {
 
           {/* Contact & Map Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Visit Us</h3>
+            <h3 className="text-lg font-semibold mb-4 font-sans">Visit Us</h3>
             <div className="space-y-3 text-gray-300">
               <p>{contactInfo.address}</p>
               <p>
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-white transition-colors duration-200 font-sans"
                 >
                   {contactInfo.phone}
                 </a>
@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               <p>
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-white transition-colors duration-200 font-sans"
                 >
                   {contactInfo.email}
                 </a>
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Church Location"
-                className="w-full"
+                className="w-full font-sans"
               />
             </div>
           </div>

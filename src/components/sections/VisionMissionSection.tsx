@@ -12,7 +12,7 @@ export const VisionMissionSection: React.FC<VisionMissionSectionProps> = ({ item
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12 lg:mb-16">
           <h2 id="vision-mission-title" className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Who We Are
+            Who We Arennnn
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Discover our vision, mission, and the heart of our community.

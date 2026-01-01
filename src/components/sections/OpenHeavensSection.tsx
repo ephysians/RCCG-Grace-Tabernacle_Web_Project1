@@ -19,10 +19,10 @@ export const OpenHeavensSection: React.FC = () => {
     <section className="py-16 bg-gray-50" aria-labelledby="devotional-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
-          <h2 id="devotional-section-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 id="devotional-section-title" className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-sans">
             Open Heavens
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
             Daily devotionals to strengthen your faith journey
           </p>
         </header>
@@ -46,15 +46,15 @@ export const OpenHeavensSection: React.FC = () => {
         {selectedDevotional && (
           <div className="space-y-6">
             <div className="flex items-center justify-between text-sm text-gray-600 pb-4 border-b border-gray-200">
-              <span className="font-medium bg-primary-50 text-primary-700 px-3 py-1 rounded-full">
+              <span className="font-medium bg-primary-50 text-primary-700 px-3 py-1 rounded-full font-sans">
                 {selectedDevotional.day}
               </span>
-              <time dateTime={selectedDevotional.date} className="font-medium">
+              <time dateTime={selectedDevotional.date} className="font-medium font-sans">
                 {selectedDevotional.date}
               </time>
             </div>
             <div className="prose prose-lg max-w-none">
-              <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+              <div className="text-gray-700 leading-relaxed whitespace-pre-line font-sans">
                 {selectedDevotional.content}
               </div>
             </div>

@@ -24,10 +24,10 @@ const WhoWeArePage: React.FC = () => {
           {/* Hero Section */}
           <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-cinzel">
+              <h1 className="text-3xl md:text-5xl font-bold mb-6 mt-10 font-sans">
                 Who We Are
               </h1>
-              <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
+              <p className="text-xl md:text-2xl opacity-90 leading-relaxed font-sans">
                 {config.shortContent}
               </p>
             </div>
@@ -39,7 +39,7 @@ const WhoWeArePage: React.FC = () => {
               <article className="prose prose-lg max-w-none">
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-cinzel">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-sans">
                       Our Identity in Christ
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -51,7 +51,7 @@ const WhoWeArePage: React.FC = () => {
                   </div>
 
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-cinzel">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-sans">
                       Our Core Mandate
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -66,7 +66,7 @@ const WhoWeArePage: React.FC = () => {
                   </div>
 
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-cinzel">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-sans">
                       Our Community Focus
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -78,7 +78,7 @@ const WhoWeArePage: React.FC = () => {
                   </div>
 
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-cinzel">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-sans">
                       A Welcoming Home
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">

@@ -20,7 +20,7 @@ export const givingConfig: GivingItem[] = [
   },
   {
     id: 'sacrificial-giving',
-    name: 'Sacrificial Giving',
+    name: 'First Fruit',
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.',
     image: '/assets/images/Sowing sacrificially.png'
   },

@@ -69,12 +69,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config }) => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1
           id="hero-title"
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-cinzel"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-sans"
         >
           {config.headline}
         </h1>
 
-        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed font-cinzel">
+        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed font-sans">
           {config.subtext}
         </p>
 

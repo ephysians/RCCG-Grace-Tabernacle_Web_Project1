@@ -28,10 +28,10 @@ export const Card: React.FC<CardProps> = ({
         <div className="text-3xl mb-4" aria-hidden="true">{icon}</div>
       )}
       <header className="flex-1">
-        <h3 className="text-xl font-semibold text-gray-900 mb-3 leading-tight">{title}</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-3 leading-tight font-sans">{title}</h3>
       </header>
       <div className="flex-1">
-        <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
+        <p className="text-gray-600 mb-4 leading-relaxed font-sans">{description}</p>
       </div>
       {date && (
         <footer className="text-sm text-gray-500 space-y-1 mt-auto pt-2">

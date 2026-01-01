@@ -44,13 +44,13 @@ export const DevotionalCard: React.FC<DevotionalCardProps> = ({ devotional, onCl
       </div>
       <div className="p-4">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-blue-600">{devotional.day}</span>
-          <span className="text-sm text-gray-500">{devotional.date}</span>
+          <span className="text-sm font-medium text-blue-600 font-sans">{devotional.day}</span>
+          <span className="text-sm text-gray-500 font-sans">{devotional.date}</span>
         </div>
-        <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
+        <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 font-sans">
           {devotional.title}
         </h3>
-        <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+        <p className="text-sm text-gray-600 mt-2 line-clamp-3 font-sans">
           {devotional.content}
         </p>
       </div>
