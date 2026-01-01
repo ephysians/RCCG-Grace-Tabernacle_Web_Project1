@@ -18,10 +18,10 @@ export interface CardItem {
 }
 
 export interface ServiceSchedule {
-  name: string
-  day: string
-  time: string
-  description: string
+  name: string;
+  day: string;
+  time: string;
+  description: string;
 }
 
 export interface NewsArticle {
@@ -74,24 +74,29 @@ export const visionMissionCommunity: CardItem[] = [
 
 export const serviceSchedule: ServiceSchedule[] = [
   {
-    name: "Sunday Service",
-    day: "Sunday",
-    time: "Sunday School: 8:00 AM - 8:45 AM | Main Service: 8:45 AM - 10:00 AM | Yoruba Service: 8:45 AM - 10:00 AM",
-    description: "Join us for Sunday school, main worship service, and Yoruba service running simultaneously."
+    name: 'Sunday Service',
+    day: 'Sunday',
+    time: 'Sunday School: 8:00 AM - 8:45 AM | Main Service: 8:45 AM - 10:00 AM | Yoruba Service: 8:45 AM - 10:00 AM | Thanks Given service: 1st Sunday of the month: 8:00 AM 10:00 AM',
+    description:
+      'Join us for Sunday school, main worship service, and Yoruba service running simultaneously.',
   },
   {
-    name: "Digging Deep",
-    day: "Tuesday",
-    time: "6:00 PM - 7:00 PM",
-    description: "Deepen your understanding of God's Word through interactive Bible study and discussion."
+    name: 'Digging Deep',
+    day: 'Tuesday',
+    time: '6:00 PM - 7:00 PM',
+    time2: '',
+    description:
+      "Deepen your understanding of God's Word through interactive Bible study and discussion.",
   },
   {
-    name: "Faith Clinic",
-    day: "Thursday",
-    time: "6:00 PM - 7:00 PM",
-    description: "Come together for prayer, healing, and building faith in our corporate prayer meeting."
-  }
-]
+    name: 'Faith Clinic',
+    day: 'Thursday',
+    time: '6:00 PM - 7:00 PM',
+    time2: '',
+    description:
+      'Come together for prayer, healing, and building faith in our corporate prayer meeting.',
+  },
+];
 
 export const newsArticles: NewsArticle[] = [
   {

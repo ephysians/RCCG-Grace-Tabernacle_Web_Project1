@@ -20,11 +20,11 @@ export default function Contact() {
 
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-24">
+        <section className="relative bg-gradient-to-br from-primary-600 to-primary-950 text-white pt-24 pb-14">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="relative container-custom">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-5">
                 Contact Us
               </h1>
               <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto">

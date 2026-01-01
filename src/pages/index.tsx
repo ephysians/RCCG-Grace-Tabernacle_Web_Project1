@@ -35,9 +35,9 @@ export default function Home() {
       <AboutSection />
       {/* <VisionMissionSection items={visionMissionCommunity} /> */}
       <ServiceScheduleSection services={serviceSchedule} />
+      <GivingSection />
       <NewsArticlesSection articles={newsArticles} />
       <EventsSection events={upcomingEvents} />
-      <GivingSection />
       <OpenHeavensSection />
       <SalvationSection />
       <PrayerRequestSection />

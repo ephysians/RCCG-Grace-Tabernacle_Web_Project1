@@ -95,8 +95,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
         <Link
           key={item.label}
           href={item.href}
-          className={`block px-4 py-2 text-sm transition-colors focus:outline-none focus:bg-primary-50 focus:text-primary-600 text-gray-700 hover:text-primary-600 hover:bg-gray-50 ${
-            isMobile ? 'text-gray-600' : ''
+          className={`block px-4 py-2 text-sm transition-colors focus:outline-none focus:bg-blue-50 focus:text-blue-600 text-blue-600 hover:text-blue-700 hover:bg-blue-50 ${
+            isMobile ? 'text-blue-600' : ''
           }`}
           role="menuitem"
           onClick={() => {

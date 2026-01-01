@@ -19,6 +19,10 @@ export const navigationConfig: NavigationItem[] = [
   {
     label: 'Resources',
     href: '/resources',
+    children: [
+      { label: 'Gallery', href: '/gallery' },
+      { label: 'Join Live Service', href: '/live-service' },
+    ],
   },
   {
     label: 'FAQ',
@@ -42,5 +46,9 @@ export const navigationConfig: NavigationItem[] = [
       { label: "Men's Fellowship", href: '/ministries/mens-fellowship' },
       { label: "Women's Fellowship", href: '/ministries/womens-fellowship' },
     ],
+  },
+  {
+    label: 'Join Live Service',
+    href: '/live-service',
   },
 ]

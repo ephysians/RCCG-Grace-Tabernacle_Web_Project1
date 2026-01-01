@@ -52,14 +52,14 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex mt-4 items-center space-x-2">
             <img
               src="/assets/images/Logo.png"
               alt="Logo"
-              className="w-20 h-20"
+              className="w-20 h-20 mt-3"
             />
             <span className="text-4xl font-normal text-white font-dancing">
               Grace Tabernacle
@@ -67,7 +67,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 text-white font-cinzel">
+          <div className="hidden md:flex items-center  text-white font-cinzel">
             {items.map(item => (
               <NavigationItem key={item.label} item={item} />
             ))}

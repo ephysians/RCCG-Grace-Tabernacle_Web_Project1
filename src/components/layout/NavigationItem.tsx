@@ -152,11 +152,19 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
     <div className="relative" data-dropdown>
       <button
         ref={buttonRef}
-        className={`px-4 py-2 rounded-md text-sm font-medium font-cinzel transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 ${
-          isActive(item.href) || isDropdownOpen
-            ? 'text-primary-600 bg-primary-50'
-            : 'text-white hover:text-primary-600 hover:bg-gray-50'
-        }`}
+        className={`
+          relative px-4 py-2 text-sm font-medium text-white font-cinzel
+          transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+          
+          after:absolute after:left-0 after:-bottom-1
+          after:h-[2px] after:w-full after:bg-white
+          after:scale-x-0 after:origin-left
+          after:transition-transform after:duration-300 after:ease-out
+          hover:after:scale-x-100
+          focus-visible:after:scale-x-100
+          
+          ${isActive(item.href) || isDropdownOpen ? 'after:scale-x-100' : ''}
+        `}
         onClick={handleToggleDropdown}
         onKeyDown={handleKeyDown}
         aria-expanded={isDropdownOpen}

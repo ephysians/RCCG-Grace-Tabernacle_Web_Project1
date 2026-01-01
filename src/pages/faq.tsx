@@ -43,23 +43,15 @@ const FAQPage: NextPage = () => {
       <Layout>
         <main className="min-h-screen bg-gray-50">
           {/* Hero Section */}
-          <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16">
+          <section className="bg-gradient-to-br from-primary-600 to-primary-950 text-white py-16">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-0 mt-9 leading-tight">
+                <h1 className="text-3xl md:text-4xl font-bold mb-2 mt-9 leading-tight">
                   {FAQ_PAGE_CONFIG.title}
                 </h1>
-                <div className="mb-6 w-full h-[1px] bg-gray-50" />
                 <p className="text-lg md:text-xl leading-relaxed opacity-90 max-w-3xl mx-auto">
                   {FAQ_PAGE_CONFIG.subtitle}
                 </p>
-                {/* <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold mb-6 mt-8 leading-tight">
-  {FAQ_PAGE_CONFIG.title}
-</h1>
-
-<p className="text-base md:text-lg xl:text-xl leading-relaxed opacity-90 max-w-3xl mx-auto">
-  {FAQ_PAGE_CONFIG.subtitle}
-</p> */}
               </div>
             </div>
           </section>

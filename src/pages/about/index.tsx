@@ -21,12 +21,12 @@ const AboutPage: React.FC = () => {
       <Layout>
         <main className="min-h-screen bg-gray-50">
           {/* Hero Section */}
-          <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-cinzel">
-                About RCCG Grace Tabernacle
+          <section className="bg-gradient-to-r from-primary-600 to-primary-950 text-white py-16">
+            <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2 mt-8 leading-tight font-serif">
+                About Grace Tabernacle
               </h1>
-              <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
+              <p className="text-lg md:text-xxl opacity-90 leading-relaxed">
                 Discover our heart, our mission, and our commitment to serving God and our community with love and purpose.
               </p>
             </div>

@@ -61,8 +61,9 @@ export const ContactInfo: React.FC = () => {
       title: 'Service Times',
       content: (
         <div>
-          <p><strong>Sunday Service:</strong> 8:00 AM - 11:00 AM</p>
-          <p><strong>Bible Study:</strong> Wednesday 6:00 PM</p>
+          <p><strong>Sunday Service:</strong> 8:00 AM</p>
+          <p><strong>Digging deep:</strong> Wednesday 6:00 PM</p>
+          <p><strong>Faith clinic:</strong> Thursday 6:00 PM</p>
           <p><strong>Prayer Meeting:</strong> Friday 6:00 PM</p>
         </div>
       )
