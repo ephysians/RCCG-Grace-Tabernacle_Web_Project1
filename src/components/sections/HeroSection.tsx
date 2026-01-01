@@ -48,22 +48,46 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ config }) => {
   return (
-    <section
-      className="relative min-h-screen text-white overflow-hidden flex items-center"
-      aria-labelledby="hero-title"
-    >
-      {/* Background Image */}
-      <Image
-        src="/assets/images/bg2a.png"
-        alt="heros-bg"
-        fill
-        priority
-        className="object-cover object-center"
-        aria-hidden="true"
-      />
+    // <section
+    //   className="relative min-h-screen text-white overflow-hidden flex items-center"
+    //   aria-labelledby="hero-title"
+    // >
+    //   {/* Background Image */}
+    //   <Image
+    //     src="/assets/images/bg2a.png"
+    //     alt="heros-bg"
+    //     fill
+    //     priority
+    //     className="object-cover object-center"
+    //     aria-hidden="true"
+    //   />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+    //   {/* Dark Overlay */}
+    //   <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+
+    <section
+  className="
+    relative min-h-screen text-white overflow-hidden flex items-center
+    bg-gradient-to-r from-primary-600 to-primary-950
+    lg:bg-none
+  "
+  aria-labelledby="hero-title"
+>
+  {/* Background Image (Desktop only) */}
+  <Image
+    src="/assets/images/bg2a.png"
+    alt="heros-bg"
+    fill
+    priority
+    className="hidden lg:block object-cover object-center"
+    aria-hidden="true"
+  />
+
+  {/* Dark Overlay (Desktop only) */}
+  <div
+    className="hidden lg:block absolute inset-0 bg-black/60"
+    aria-hidden="true"
+  />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
