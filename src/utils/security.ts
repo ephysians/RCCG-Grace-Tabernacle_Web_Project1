@@ -1,1 +1,100 @@
-/**\n * Security Utilities\n * Production security enhancements and validation\n */\n\n// Input sanitization\nexport const sanitizeInput = (input: string): string => {\n  return input\n    .replace(/[<>\"'&]/g, (match) => {\n      const entityMap: Record<string, string> = {\n        '<': '&lt;',\n        '>': '&gt;',\n        '\"': '&quot;',\n        \"'\": '&#x27;',\n        '&': '&amp;',\n      };\n      return entityMap[match];\n    })\n    .trim();\n};\n\n// Rate limiting helper (client-side)\nclass RateLimiter {\n  private requests: Map<string, number[]> = new Map();\n  private readonly maxRequests: number;\n  private readonly windowMs: number;\n\n  constructor(maxRequests = 10, windowMs = 60000) {\n    this.maxRequests = maxRequests;\n    this.windowMs = windowMs;\n  }\n\n  isAllowed(identifier: string): boolean {\n    const now = Date.now();\n    const requests = this.requests.get(identifier) || [];\n    \n    // Remove old requests outside the window\n    const validRequests = requests.filter(\n      (timestamp) => now - timestamp < this.windowMs\n    );\n    \n    if (validRequests.length >= this.maxRequests) {\n      return false;\n    }\n    \n    validRequests.push(now);\n    this.requests.set(identifier, validRequests);\n    return true;\n  }\n}\n\nexport const rateLimiter = new RateLimiter();\n\n// CSRF token generation (for forms)\nexport const generateCSRFToken = (): string => {\n  if (typeof window === 'undefined') return '';\n  \n  const array = new Uint8Array(32);\n  crypto.getRandomValues(array);\n  return Array.from(array, (byte) => byte.toString(16).padStart(2, '0')).join('');\n};\n\n// Content Security Policy helper\nexport const getCSPHeader = (): string => {\n  const isDevelopment = process.env.NODE_ENV === 'development';\n  \n  const directives = [\n    \"default-src 'self'\",\n    \"script-src 'self' 'unsafe-inline' 'unsafe-eval'\",\n    \"style-src 'self' 'unsafe-inline'\",\n    \"img-src 'self' data: https:\",\n    \"font-src 'self' data:\",\n    \"connect-src 'self'\",\n    \"frame-ancestors 'none'\",\n    \"base-uri 'self'\",\n    \"form-action 'self'\",\n  ];\n  \n  if (isDevelopment) {\n    directives.push(\"script-src 'self' 'unsafe-inline' 'unsafe-eval' localhost:*\");\n    directives.push(\"connect-src 'self' ws: wss: localhost:*\");\n  }\n  \n  return directives.join('; ');\n};\n\n// Validate environment for security\nexport const validateSecurityConfig = (): void => {\n  if (process.env.NODE_ENV === 'production') {\n    const requiredSecurityVars = [\n      'NEXTAUTH_SECRET',\n      'NEXTAUTH_URL',\n    ];\n    \n    const missingVars = requiredSecurityVars.filter(\n      (varName) => !process.env[varName]\n    );\n    \n    if (missingVars.length > 0) {\n      console.error(\n        `Security Error: Missing required environment variables: ${missingVars.join(', ')}`\n      );\n    }\n  }\n};
+/**
+ * Security Utilities
+ * Production security enhancements and validation
+ */
+
+// Input sanitization
+export const sanitizeInput = (input: string): string => {
+  return input
+    .replace(/[<>"'&]/g, (match) => {
+      const entityMap: Record<string, string> = {
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;',
+        '&': '&amp;',
+      };
+      return entityMap[match];
+    })
+    .trim();
+};
+
+// Rate limiting helper (client-side)
+class RateLimiter {
+  private requests: Map<string, number[]> = new Map();
+  private readonly maxRequests: number;
+  private readonly windowMs: number;
+
+  constructor(maxRequests = 10, windowMs = 60000) {
+    this.maxRequests = maxRequests;
+    this.windowMs = windowMs;
+  }
+
+  isAllowed(identifier: string): boolean {
+    const now = Date.now();
+    const requests = this.requests.get(identifier) || [];
+
+    // Remove old requests outside the window
+    const validRequests = requests.filter(
+      (timestamp) => now - timestamp < this.windowMs
+    );
+
+    if (validRequests.length >= this.maxRequests) {
+      return false;
+    }
+
+    validRequests.push(now);
+    this.requests.set(identifier, validRequests);
+    return true;
+  }
+}
+
+export const rateLimiter = new RateLimiter();
+
+// CSRF token generation (for forms)
+export const generateCSRFToken = (): string => {
+  if (typeof window === 'undefined') return '';
+
+  const array = new Uint8Array(32);
+  crypto.getRandomValues(array);
+  return Array.from(array, (byte) => byte.toString(16).padStart(2, '0')).join('');
+};
+
+// Content Security Policy helper
+export const getCSPHeader = (): string => {
+  const isDevelopment = process.env.NODE_ENV === 'development';
+
+  const directives = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: https:",
+    "font-src 'self' data:",
+    "connect-src 'self'",
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+  ];
+
+  if (isDevelopment) {
+    directives.push("script-src 'self' 'unsafe-inline' 'unsafe-eval' localhost:*");
+    directives.push("connect-src 'self' ws: wss: localhost:*");
+  }
+
+  return directives.join('; ');
+};
+
+// Validate environment for security
+export const validateSecurityConfig = (): string[] => {
+  if (process.env.NODE_ENV === 'production') {
+    const requiredSecurityVars = ['NEXTAUTH_SECRET', 'NEXTAUTH_URL'];
+
+    const missingVars = requiredSecurityVars.filter(
+      (varName) => !process.env[varName]
+    );
+
+    return missingVars;
+  }
+
+  return [];
+};

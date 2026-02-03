@@ -26,9 +26,6 @@ export const usePrayerRequestForm = () => {
       // Validate data one more time before submission
       const validatedData = prayerRequestSchema.parse(data)
       
-      // Log for development/debugging
-      console.log('Prayer request submitted:', validatedData)
-      
       // Simulate API call with realistic delay
       await new Promise(resolve => setTimeout(resolve, 1500))
       
@@ -45,8 +42,6 @@ export const usePrayerRequestForm = () => {
         message: 'Your prayer request has been submitted successfully. We will pray for you!' 
       }
     } catch (error) {
-      console.error('Error submitting prayer request:', error)
-      
       let errorMessage = 'Failed to submit prayer request. Please try again.'
       
       if (error instanceof Error) {

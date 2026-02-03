@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { ZodError } from 'zod'
 import { prayerRequestSchema } from '@/lib/validations/prayer'
 import { prayerService } from '@/services/prayer.service'
 import { ApiResponse } from '@/types/api'
@@ -23,16 +24,15 @@ export default async function handler(
       data: result,
       message: 'Prayer request submitted successfully'
     })
-  } catch (error: any) {
-    if (error.name === 'ZodError') {
+  } catch (error: unknown) {
+    if (error instanceof ZodError) {
       return res.status(400).json({
         success: false,
         error: 'Validation failed',
-        details: error.errors
+        details: error.issues
       })
     }
 
-    console.error('Prayer request submission error:', error)
     return res.status(500).json({
       success: false,
       error: 'Internal server error'

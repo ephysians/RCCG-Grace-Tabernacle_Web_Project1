@@ -91,7 +91,6 @@ export const ContactForm: React.FC = () => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000))
       
-      console.log('Form submitted:', formData)
       setIsSubmitted(true)
       
       // Reset form
@@ -102,8 +101,8 @@ export const ContactForm: React.FC = () => {
         subject: '',
         message: ''
       })
-    } catch (error) {
-      console.error('Error submitting form:', error)
+    } catch {
+      setIsSubmitted(false)
     } finally {
       setIsSubmitting(false)
     }

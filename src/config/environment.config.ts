@@ -1,1 +1,63 @@
-/**\n * Environment Configuration\n * Centralized configuration for environment variables with type safety\n */\n\ninterface EnvironmentConfig {\n  app: {\n    name: string;\n    url: string;\n    env: 'development' | 'production' | 'test';\n  };\n  api: {\n    prayerUrl: string;\n  };\n  features: {\n    analytics: boolean;\n    debugMode: boolean;\n  };\n}\n\nconst getEnvironmentConfig = (): EnvironmentConfig => {\n  const isProduction = process.env.NODE_ENV === 'production';\n  \n  return {\n    app: {\n      name: process.env.NEXT_PUBLIC_APP_NAME || 'RCCG Grace Tabernacle',\n      url: process.env.NEXT_PUBLIC_APP_URL || (isProduction ? 'https://rccg-grace-tabernacle.vercel.app' : 'http://localhost:3000'),\n      env: (process.env.NEXT_PUBLIC_APP_ENV as any) || process.env.NODE_ENV || 'development',\n    },\n    api: {\n      prayerUrl: process.env.NEXT_PUBLIC_PRAYER_API_URL || '/api/prayer',\n    },\n    features: {\n      analytics: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID !== undefined,\n      debugMode: process.env.NEXT_PUBLIC_DEBUG_MODE === 'true' && !isProduction,\n    },\n  };\n};\n\nexport const env = getEnvironmentConfig();\n\n// Validation function to ensure required environment variables are set\nexport const validateEnvironment = (): void => {\n  const requiredEnvVars = [\n    'NEXT_PUBLIC_APP_NAME',\n    'NEXT_PUBLIC_APP_URL',\n  ];\n\n  const missingVars = requiredEnvVars.filter(\n    (varName) => !process.env[varName]\n  );\n\n  if (missingVars.length > 0 && process.env.NODE_ENV === 'production') {\n    console.warn(\n      `Warning: Missing environment variables: ${missingVars.join(', ')}`\n    );\n  }\n};\n\n// Runtime environment validation\nif (typeof window === 'undefined') {\n  validateEnvironment();\n}
+/**
+ * Environment Configuration
+ * Centralized configuration for environment variables with type safety
+ */
+
+interface EnvironmentConfig {
+  app: {
+    name: string;
+    url: string;
+    env: 'development' | 'production' | 'test';
+  };
+  api: {
+    prayerUrl: string;
+  };
+  features: {
+    analytics: boolean;
+    debugMode: boolean;
+  };
+}
+
+const getEnvironmentConfig = (): EnvironmentConfig => {
+  const isProduction = process.env.NODE_ENV === 'production';
+
+  return {
+    app: {
+      name: process.env.NEXT_PUBLIC_APP_NAME || 'RCCG Grace Tabernacle',
+      url:
+        process.env.NEXT_PUBLIC_APP_URL ||
+        (isProduction
+          ? 'https://rccg-grace-tabernacle.vercel.app'
+          : 'http://localhost:3000'),
+      env:
+        (process.env.NEXT_PUBLIC_APP_ENV as EnvironmentConfig['app']['env']) ||
+        process.env.NODE_ENV ||
+        'development',
+    },
+    api: {
+      prayerUrl: process.env.NEXT_PUBLIC_PRAYER_API_URL || '/api/prayer',
+    },
+    features: {
+      analytics: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID !== undefined,
+      debugMode: process.env.NEXT_PUBLIC_DEBUG_MODE === 'true' && !isProduction,
+    },
+  };
+};
+
+export const env = getEnvironmentConfig();
+
+// Validation function to ensure required environment variables are set
+export const validateEnvironment = (): string[] => {
+  const requiredEnvVars = ['NEXT_PUBLIC_APP_NAME', 'NEXT_PUBLIC_APP_URL'];
+
+  const missingVars = requiredEnvVars.filter(
+    (varName) => !process.env[varName]
+  );
+
+  return missingVars;
+};
+
+// Runtime environment validation
+if (typeof window === 'undefined') {
+  validateEnvironment();
+}

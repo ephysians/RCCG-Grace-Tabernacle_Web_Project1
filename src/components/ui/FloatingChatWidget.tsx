@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
-import { useChatWidget, type ChatMessage } from '../../hooks/useChatWidget'
+import { useChatWidget } from '../../hooks/useChatWidget'
 
 const FOCUSABLE_ELEMENTS = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex=\"-1\"]):not([disabled])'
 

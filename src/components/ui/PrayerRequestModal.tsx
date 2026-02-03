@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { Modal } from '@/components/ui/Modal'
 import { usePrayerRequestForm } from '@/hooks/usePrayerRequestForm'
 import { prayerRequestConfig } from '@/config/prayer.config'
+import { PrayerRequestFormData } from '@/lib/validations/prayer'
 
 interface PrayerRequestModalProps {
   isOpen: boolean
@@ -16,7 +17,14 @@ export const PrayerRequestModal: React.FC<PrayerRequestModalProps> = ({
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
   const [messageLength, setMessageLength] = useState(0)
 
-  const handleSubmit = useCallback(async (data: any) => {
+  const handleClose = useCallback(() => {
+    form.reset()
+    setSubmitStatus(null)
+    setMessageLength(0)
+    onClose()
+  }, [form, onClose])
+
+  const handleSubmit = useCallback(async (data: PrayerRequestFormData) => {
     setSubmitStatus(null)
     const result = await onSubmit(data)
     setSubmitStatus({
@@ -29,14 +37,7 @@ export const PrayerRequestModal: React.FC<PrayerRequestModalProps> = ({
         handleClose()
       }, 2000)
     }
-  }, [onSubmit])
-
-  const handleClose = useCallback(() => {
-    form.reset()
-    setSubmitStatus(null)
-    setMessageLength(0)
-    onClose()
-  }, [form, onClose])
+  }, [handleClose, onSubmit])
 
   const handleMessageChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessageLength(e.target.value.length)

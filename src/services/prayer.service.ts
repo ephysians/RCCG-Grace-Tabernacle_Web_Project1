@@ -6,13 +6,6 @@ class PrayerService {
     const id = this.generateId()
     const submittedAt = new Date().toISOString()
     
-    // Mock storage - log the request
-    console.log('Prayer Request Submitted:', {
-      id,
-      submittedAt,
-      ...data
-    })
-    
     // Simulate async operation
     await new Promise(resolve => setTimeout(resolve, 100))
     

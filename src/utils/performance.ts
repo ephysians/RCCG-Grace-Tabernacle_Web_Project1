@@ -1,1 +1,69 @@
-/**\n * Performance Optimization Utilities\n * Production-ready performance enhancements\n */\n\nimport { useEffect } from 'react';\nimport { env } from '@/config/environment.config';\n\n// Preload critical resources\nexport const preloadCriticalResources = (): void => {\n  if (typeof window === 'undefined') return;\n\n  // Preload critical fonts\n  const fontPreloads = [\n    '/assets/fonts/inter-var.woff2',\n  ];\n\n  fontPreloads.forEach((href) => {\n    const link = document.createElement('link');\n    link.rel = 'preload';\n    link.href = href;\n    link.as = 'font';\n    link.type = 'font/woff2';\n    link.crossOrigin = 'anonymous';\n    document.head.appendChild(link);\n  });\n};\n\n// Service Worker registration for caching\nexport const registerServiceWorker = async (): Promise<void> => {\n  if (\n    typeof window !== 'undefined' &&\n    'serviceWorker' in navigator &&\n    env.app.env === 'production'\n  ) {\n    try {\n      await navigator.serviceWorker.register('/sw.js');\n      console.log('Service Worker registered successfully');\n    } catch (error) {\n      console.warn('Service Worker registration failed:', error);\n    }\n  }\n};\n\n// Performance monitoring hook\nexport const usePerformanceMonitoring = (): void => {\n  useEffect(() => {\n    if (!env.features.debugMode) return;\n\n    // Monitor Core Web Vitals\n    const observer = new PerformanceObserver((list) => {\n      list.getEntries().forEach((entry) => {\n        console.log(`${entry.name}: ${entry.startTime}ms`);\n      });\n    });\n\n    observer.observe({ entryTypes: ['measure', 'navigation'] });\n\n    return () => observer.disconnect();\n  }, []);\n};\n\n// Image optimization helper\nexport const getOptimizedImageProps = (src: string, alt: string) => ({\n  src,\n  alt,\n  loading: 'lazy' as const,\n  decoding: 'async' as const,\n  style: { contentVisibility: 'auto' },\n});
+/**
+ * Performance Optimization Utilities
+ * Production-ready performance enhancements
+ */
+
+import { useEffect } from 'react';
+
+import { env } from '@/config/environment.config';
+
+// Preload critical resources
+export const preloadCriticalResources = (): void => {
+  if (typeof window === 'undefined') return;
+
+  // Preload critical fonts
+  const fontPreloads = ['/assets/fonts/inter-var.woff2'];
+
+  fontPreloads.forEach((href) => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.href = href;
+    link.as = 'font';
+    link.type = 'font/woff2';
+    link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+  });
+};
+
+// Service Worker registration for caching
+export const registerServiceWorker = async (): Promise<void> => {
+  if (
+    typeof window !== 'undefined' &&
+    'serviceWorker' in navigator &&
+    env.app.env === 'production'
+  ) {
+    try {
+      await navigator.serviceWorker.register('/sw.js');
+    } catch {
+      // Ignore registration errors in production builds.
+    }
+  }
+};
+
+// Performance monitoring hook
+export const usePerformanceMonitoring = (): void => {
+  useEffect(() => {
+    if (!env.features.debugMode) return;
+
+    // Monitor Core Web Vitals
+    const observer = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      if (typeof window !== 'undefined') {
+        (window as Window & { __perfEntries?: PerformanceEntry[] }).__perfEntries = entries;
+      }
+    });
+
+    observer.observe({ entryTypes: ['measure', 'navigation'] });
+
+    return () => observer.disconnect();
+  }, []);
+};
+
+// Image optimization helper
+export const getOptimizedImageProps = (src: string, alt: string) => ({
+  src,
+  alt,
+  loading: 'lazy' as const,
+  decoding: 'async' as const,
+  style: { contentVisibility: 'auto' },
+});

@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Layout } from '@/components/layout'
 import { aboutNavigationItems } from '@/config/about.config'
@@ -47,11 +48,13 @@ const AboutPage: React.FC = () => {
                     As a parish of the Redeemed Christian Church of God, we carry forward a rich heritage of holiness, evangelism, and spiritual excellence while maintaining our unique identity and calling in this community.
                   </p>
                 </div>
-                <div className="relative">
-                  <img
+                <div className="relative h-64">
+                  <Image
                     src="/assets/images/building.png"
                     alt="RCCG Grace Tabernacle Church Building"
-                    className="w-full h-64 object-cover rounded-lg shadow-lg"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover rounded-lg shadow-lg"
                   />
                 </div>
               </div>

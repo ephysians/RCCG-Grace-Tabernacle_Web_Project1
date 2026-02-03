@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import Image from 'next/image'
 import { givingConfig, GivingItem } from '@/config/giving.config'
 import { GivingCard } from '@/components/common/GivingCard'
 import { Modal } from '@/components/ui/Modal'
@@ -70,10 +71,12 @@ export const GivingSection: React.FC = () => {
         {selectedItem && (
           <div className="space-y-6">
             <div className="relative h-64 w-full rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={selectedItem.image}
                 alt={selectedItem.name}
-                className="w-full h-full object-cover font-sans"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover font-sans"
               />
             </div>
             <div>

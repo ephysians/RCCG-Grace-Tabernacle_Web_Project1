@@ -5,12 +5,6 @@ import { PaymentRequest, PaymentResponse, PaymentStatus } from '@/types/payment'
 const createPlaceholderGateway = () => ({
   name: 'placeholder',
   processPayment: async (request: PaymentRequest): Promise<PaymentResponse> => {
-    console.log('Payment Gateway - Processing payment:', {
-      donationType: request.donationType,
-      amount: request.amount,
-      currency: request.currency || 'NGN'
-    })
-
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 2000))
 

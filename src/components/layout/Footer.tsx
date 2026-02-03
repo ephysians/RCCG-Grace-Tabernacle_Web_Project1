@@ -5,7 +5,7 @@ import { socialLinks, contactInfo, footerSections } from '../../config/footer.co
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white" role="contentinfo">
+    <footer className="bg-black dark:bg-gray-950 text-white" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Footer Sections */}
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
             </div>
             
             {/* Map Placeholder */}
-            <div className="mt-4 bg-gray-800 rounded-lg overflow-hidden">
+            <div className="mt-4 bg-gray-800 dark:bg-gray-900 rounded-lg overflow-hidden">
               <iframe
                 src={contactInfo.mapEmbedUrl}
                 width="100%"
@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Social Links, Give Now Button & Copyright */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="mt-12 pt-8 border-t border-gray-800 dark:border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-6 mb-4 md:mb-0">
               {socialLinks.map((social) => (
