@@ -61,13 +61,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className = '' }) =>
 
           {/* Image */}
           <div className="relative">
-            <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-lg relative">
+            <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-lg relative h-80">
               <Image
                 src="/assets/images/bg3.png"
                 alt="RCCG Grace Tabernacle Church Building"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
+                priority
               />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-primary-600 text-white p-6 rounded-lg shadow-lg max-w-xs">

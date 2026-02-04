@@ -9,14 +9,14 @@ interface NewsArticlesSectionProps {
 
 export const NewsArticlesSection: React.FC<NewsArticlesSectionProps> = ({ articles }) => {
   return (
-    <section className="py-16 bg-gray-50" aria-labelledby="news-section-title">
+    <section className="py-16 bg-gray-50 dark:bg-gray-800" aria-labelledby="news-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-12">
           <header className="flex-1">
-            <h2 id="news-section-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans">
+            <h2 id="news-section-title" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-sans">
               Latest News & Articles
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl font-sans">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl font-sans">
               Stay updated with our latest news, events, and spiritual insights.
             </p>
           </header>

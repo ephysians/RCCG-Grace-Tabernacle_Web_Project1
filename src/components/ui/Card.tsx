@@ -23,18 +23,18 @@ export const Card: React.FC<CardProps> = ({
   className = ''
 }) => {
   const content = (
-    <article className={`bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200 h-full flex flex-col ${className}`}>
+    <article className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200 h-full flex flex-col ${className}`}>
       {icon && (
         <div className="text-3xl mb-4" aria-hidden="true">{icon}</div>
       )}
       <header className="flex-1">
-        <h3 className="text-xl font-semibold text-gray-900 mb-3 leading-tight font-sans">{title}</h3>
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 leading-tight font-sans">{title}</h3>
       </header>
       <div className="flex-1">
-        <p className="text-gray-600 mb-4 leading-relaxed font-sans">{description}</p>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed font-sans">{description}</p>
       </div>
       {date && (
-        <footer className="text-sm text-gray-500 space-y-1 mt-auto pt-2">
+        <footer className="text-sm text-gray-500 dark:text-gray-400 space-y-1 mt-auto pt-2">
           <div className="flex items-center gap-2">
             <span className="text-primary-500" aria-hidden="true">📅</span>
             <time dateTime={date} className="font-medium">
