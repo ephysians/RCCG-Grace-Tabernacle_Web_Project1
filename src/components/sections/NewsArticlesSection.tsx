@@ -2,16 +2,19 @@ import React from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui'
 import { NewsArticle } from '@/config/home.config'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 interface NewsArticlesSectionProps {
   articles: NewsArticle[]
 }
 
 export const NewsArticlesSection: React.FC<NewsArticlesSectionProps> = ({ articles }) => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-800" aria-labelledby="news-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-12">
+        <div ref={headerRef} className={`flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-12 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <header className="flex-1">
             <h2 id="news-section-title" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-sans">
               Latest News & Articles
@@ -28,7 +31,7 @@ export const NewsArticlesSection: React.FC<NewsArticlesSectionProps> = ({ articl
             View All →
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 font-sans gap-6 lg:gap-8">
+        <div ref={cardsRef} className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 font-sans gap-6 lg:gap-8 transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {articles.map((article) => (
             <Card
               key={article.id}

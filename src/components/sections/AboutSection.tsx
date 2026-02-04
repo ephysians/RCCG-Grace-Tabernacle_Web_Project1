@@ -1,18 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 interface AboutSectionProps {
   className?: string
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ className = '' }) => {
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
+
   return (
     <section className={`py-16 lg:py-20 bg-white dark:bg-gray-900 ${className}`} aria-labelledby="about-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <div>
+          <div ref={contentRef} className={`transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <header className="mb-8">
               <h2 id="about-title" className="text-2xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-4 font-sans">
                 About RCCG Grace Tabernacle
@@ -31,7 +35,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className = '' }) =>
                 As a parish of the Redeemed Christian Church of God, we carry forward a rich heritage of holiness, evangelism, and spiritual excellence. Our doors are always open, our hearts are always ready to receive, and our hands are always extended in fellowship.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+              <div ref={cardsRef} className={`grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <div className="bg-primary-50 dark:bg-primary-900 p-4 rounded-lg">
                   <h3 className="font-semibold text-primary-800 dark:text-primary-200 mb-2 font-sans">Founded</h3>
                   <p className="text-primary-700 dark:text-primary-300 font-sans">Established with a heart for community</p>

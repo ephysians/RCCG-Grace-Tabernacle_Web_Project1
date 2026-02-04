@@ -2,16 +2,19 @@ import React from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui'
 import { Event } from '@/config/home.config'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 interface EventsSectionProps {
   events: Event[]
 }
 
 export const EventsSection: React.FC<EventsSectionProps> = ({ events }) => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
   return (
     <section className="py-16 bg-white dark:bg-gray-900" aria-labelledby="events-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-12">
+        <div ref={headerRef} className={`flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-12 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <header className="flex-1">
             <h2 id="events-section-title" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-sans ">
               Upcoming Events
@@ -28,7 +31,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ events }) => {
             View All →
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 font-sans ">
+        <div ref={cardsRef} className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 font-sans transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {events.map((event) => (
             <Card
               key={event.id}

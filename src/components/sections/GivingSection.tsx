@@ -4,11 +4,14 @@ import { givingConfig, GivingItem } from '@/config/giving.config'
 import { GivingCard } from '@/components/common/GivingCard'
 import { Modal } from '@/components/ui/Modal'
 import { usePaymentGateway } from '@/hooks/usePaymentGateway'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export const GivingSection: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<GivingItem | null>(null)
   const [amount, setAmount] = useState<string>('')
   const { processPayment, isProcessing, error, reset } = usePaymentGateway()
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
 
   const handleCardClick = useCallback((item: GivingItem) => {
     setSelectedItem(item)
@@ -35,24 +38,24 @@ export const GivingSection: React.FC = () => {
   return (
     <section
       id="giving"
-      className="py-16 bg-gray-50"
+      className="py-16 bg-gray-50 dark:bg-gray-800"
       aria-labelledby="giving-section-title"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-12">
+        <header ref={headerRef} className={`text-center mb-12 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2
             id="giving-section-title"
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-sans"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-sans"
           >
             Give & Support
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-sans">
             Your generous contributions help us continue our mission and serve
             our community.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div ref={cardsRef} className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {givingConfig.map(item => (
             <GivingCard
               key={item.id}

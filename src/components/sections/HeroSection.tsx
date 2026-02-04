@@ -93,16 +93,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config }) => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1
           id="hero-title"
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-sans"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-sans animate-slide-in-left"
         >
           {config.headline}
         </h1>
 
-        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed font-sans">
+        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed font-sans animate-slide-in-right">
           {config.subtext}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: '1s' }}>
           <Link
             href={config.primaryCTA.href}
             className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 min-w-[200px]"

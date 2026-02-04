@@ -7,35 +7,33 @@ interface UseScrollAnimationOptions {
 }
 
 export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
-  const { threshold = 0.1, rootMargin = '0px', triggerOnce = true } = options
   const [isVisible, setIsVisible] = useState(false)
-  const [hasTriggered, setHasTriggered] = useState(false)
-  const elementRef = useRef<HTMLElement>(null)
+  const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const element = elementRef.current
-    if (!element) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && (!triggerOnce || !hasTriggered)) {
+        if (entry.isIntersecting) {
           setIsVisible(true)
-          if (triggerOnce) {
-            setHasTriggered(true)
+          if (options.triggerOnce) {
+            observer.unobserve(entry.target)
           }
-        } else if (!triggerOnce && !entry.isIntersecting) {
+        } else if (!options.triggerOnce) {
           setIsVisible(false)
         }
       },
-      { threshold, rootMargin }
+      {
+        threshold: options.threshold || 0.1,
+        rootMargin: options.rootMargin || '0px'
+      }
     )
 
-    observer.observe(element)
-
-    return () => {
-      observer.unobserve(element)
+    if (ref.current) {
+      observer.observe(ref.current)
     }
-  }, [threshold, rootMargin, triggerOnce, hasTriggered])
 
-  return { elementRef, isVisible }
+    return () => observer.disconnect()
+  }, [options.threshold, options.rootMargin, options.triggerOnce])
+
+  return { ref, isVisible }
 }
