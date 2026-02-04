@@ -5,6 +5,8 @@ export interface DevotionalItem {
   day: string
   image: string
   content: string
+  excerpt?: string
+  permalink?: string
 }
 
 export interface DevotionalConfig {

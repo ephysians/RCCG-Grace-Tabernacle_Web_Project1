@@ -10,6 +10,9 @@ interface DevotionalCardProps {
 
 export const DevotionalCard: React.FC<DevotionalCardProps> = ({ devotional, onClick }) => {
   const [imageError, setImageError] = useState(false)
+  const previewText = devotional.excerpt || devotional.content
+
+  console.log('DevotionalCard item:', devotional)
 
   const handleClick = () => {
     onClick(devotional)
@@ -54,15 +57,15 @@ export const DevotionalCard: React.FC<DevotionalCardProps> = ({ devotional, onCl
         )}
       </div>
       <div className="p-4">
-        <div className="flex items-center justify-between mb-2">
+        {/* <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium text-blue-600 font-sans">{devotional.day}</span>
           <span className="text-sm text-gray-500 font-sans">{devotional.date}</span>
-        </div>
+        </div> */}
         <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 font-sans">
           {devotional.title}
         </h3>
         <p className="text-sm text-gray-600 mt-2 line-clamp-3 font-sans">
-          {devotional.content}
+          {previewText}
         </p>
       </div>
     </div>

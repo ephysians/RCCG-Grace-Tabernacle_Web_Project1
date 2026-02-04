@@ -24,8 +24,40 @@ export default function LiveService() {
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="aspect-video bg-gray-900 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-white text-lg font-sans">Live Streaming</p>
+            <div className="aspect-video bg-black rounded-lg mb-6 overflow-hidden">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube.com/embed/live_stream?channel=GRACETABERNACLEONLINE"
+                title="RCCG Grace Tabernacle Live Stream"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+
+            <div className="text-center mb-6">
+              <a
+                className="inline-flex items-center justify-center rounded-md bg-red-600 px-5 py-3 text-white font-semibold font-sans hover:bg-red-700 transition-colors"
+                href="https://www.youtube.com/@GRACETABERNACLEONLINE/streams"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open in YouTube
+              </a>
+            </div>
+
+            <div className="border-t pt-6">
+              <h2 className="text-xl font-semibold mb-4 font-sans text-center">
+                Latest Sermon (Fallback)
+              </h2>
+              <div className="aspect-video bg-black rounded-lg overflow-hidden">
+                <iframe
+                  className="h-full w-full"
+                  src="https://www.youtube.com/embed/rJxLXpUQ1qY"
+                  title="Latest Sermon"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
             </div>
 
             <div className="text-center">
