@@ -88,7 +88,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
       }`
     : `
       relative px-4 py-2 text-sm font-medium text-white font-sans
-      transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+      transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
 
       after:absolute after:left-0 after:-bottom-1
       after:h-[2px] after:w-full after:bg-white
@@ -97,7 +97,6 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
       hover:after:scale-x-100
       focus-visible:after:scale-x-100
 
-      ${isActive(item.href) ? 'after:scale-x-100' : ''}
     `
 
   return (
@@ -154,7 +153,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
         ref={buttonRef}
         className={`
           relative px-4 py-2 text-sm font-medium text-white font-sans
-          transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+          transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
           
           after:absolute after:left-0 after:-bottom-1
           after:h-[2px] after:w-full after:bg-white
@@ -163,7 +162,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
           hover:after:scale-x-100
           focus-visible:after:scale-x-100
           
-          ${isActive(item.href) || isDropdownOpen ? 'after:scale-x-100' : ''}
+          ${isDropdownOpen ? 'after:scale-x-100' : ''}
         `}
         onClick={handleToggleDropdown}
         onKeyDown={handleKeyDown}

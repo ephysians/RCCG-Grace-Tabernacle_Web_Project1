@@ -10,8 +10,8 @@ export const GivingSection: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<GivingItem | null>(null)
   const [amount, setAmount] = useState<string>('')
   const { processPayment, isProcessing, error, reset } = usePaymentGateway()
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ triggerOnce: true })
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation<HTMLElement>({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
 
   const handleCardClick = useCallback((item: GivingItem) => {
     setSelectedItem(item)

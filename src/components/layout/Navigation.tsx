@@ -79,7 +79,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
             ))}
             <button
               onClick={toggleTheme}
-              className="ml-4 p-2 rounded-md text-white hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              className="ml-4 p-2 rounded-md text-white hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
               aria-label="Toggle dark mode"
             >
               {isDark ? (
@@ -98,7 +98,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-md text-white hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              className="p-2 rounded-md text-white hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
               aria-label="Toggle dark mode"
             >
               {isDark ? (
@@ -112,7 +112,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
               )}
             </button>
             <button
-              className="p-2 rounded-md text-white hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              className="p-2 rounded-md text-white hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"

@@ -9,25 +9,29 @@ export const givingConfig: GivingItem[] = [
   {
     id: 'tithe',
     name: 'Tithe',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    image: '/assets/images/Tithe.png'
+    description:
+      'Fulfill your biblical calling to give back. Your faithful tithing supports our local congregation, daily operations, and community outreach.',
+    image: '/assets/images/Tithe.png',
   },
   {
     id: 'offering',
     name: 'Offering',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    image: '/assets/images/offering.png'
+    description:
+      'Give a freewill offering beyond your tithe to support special church initiatives, facility updates, and urgent community needs',
+    image: '/assets/images/offering.png',
   },
   {
     id: 'sacrificial-giving',
     name: 'First Fruit',
-    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.',
-    image: '/assets/images/Sowing sacrificially.png'
+    description:
+    'Honor God with the first fruits of your income to sustain our church mission, facilities, and regular ministries.',
+    image: '/assets/images/Sowing sacrificially.png',
   },
   {
     id: 'building-project',
     name: 'Building Project',
-    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.',
-    image: '/assets/images/church fund raising.png'
-  }
-]
+    description:
+      'Support our churches building projects to expand our facilities and better serve our community.',
+    image: '/assets/images/church fund raising.png',
+  },
+];
