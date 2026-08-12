@@ -12,7 +12,6 @@ export const DevotionalCard: React.FC<DevotionalCardProps> = ({ devotional, onCl
   const [imageError, setImageError] = useState(false)
   const previewText = devotional.excerpt || devotional.content
 
-  console.log('DevotionalCard item:', devotional)
 
   const handleClick = () => {
     onClick(devotional)

@@ -24,7 +24,7 @@ export const usePrayerRequestForm = () => {
   const onSubmit = useCallback(async (data: PrayerRequestFormData): Promise<SubmitResult> => {
     try {
       // Validate data one more time before submission
-      const validatedData = prayerRequestSchema.parse(data)
+      prayerRequestSchema.parse(data)
       
       // Simulate API call with realistic delay
       await new Promise(resolve => setTimeout(resolve, 1500))

@@ -98,7 +98,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           return null
         }
         const data: OpenHeavensApiItem = await response.json()
-        console.log(`Open Heavens raw (${date}):`, data)
         return data
       })
     )
@@ -113,14 +112,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         throw new Error('Open Heavens service unavailable')
       }
       const latestData: OpenHeavensApiItem = await latestResponse.json()
-      console.log('Open Heavens raw (latest):', latestData)
       items.push(toDevotionalItem(latestData))
     }
 
     return res.status(200).json({ items })
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error'
-    console.error('Open Heavens fetch failed:', error)
     return res.status(500).json({
       message: 'Open Heavens service unavailable',
       details: message

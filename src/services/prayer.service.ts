@@ -2,7 +2,7 @@ import { PrayerRequestFormData } from '@/lib/validations/prayer'
 import { PrayerRequestResponse } from '@/types/api'
 
 class PrayerService {
-  async submitPrayerRequest(data: PrayerRequestFormData): Promise<PrayerRequestResponse> {
+  async submitPrayerRequest(_data: PrayerRequestFormData): Promise<PrayerRequestResponse> {
     const id = this.generateId()
     const submittedAt = new Date().toISOString()
     

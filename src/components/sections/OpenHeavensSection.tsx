@@ -102,7 +102,6 @@ export const OpenHeavensSection: React.FC = () => {
         const todayResponse = await fetch('https://micromab.com/wp-json/openheavens/v1/today')
         if (todayResponse.ok) {
           const todayData = await todayResponse.json()
-          console.log('Open Heavens raw (today):', todayData)
           const item = toDevotionalItem(todayData)
           if (isMounted) {
             setDevotionals([item])
@@ -116,7 +115,6 @@ export const OpenHeavensSection: React.FC = () => {
           throw new Error('Open Heavens service unavailable')
         }
         const latestData = await latestResponse.json()
-        console.log('Open Heavens raw (latest):', latestData)
         const item = toDevotionalItem(latestData)
         if (isMounted) {
           setDevotionals([item])
