@@ -64,10 +64,10 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
               alt="Logo"
               width={80}
               height={80}
-              className="w-20 h-20 mt-3"
+              className="w-12 h-12 sm:w-20 sm:h-20 mt-3"
               priority
             />
-            <span className="text-4xl font-normal text-white font-dancing">
+            <span className="text-2xl sm:text-4xl font-normal text-white font-dancing">
               Grace Tabernacle
             </span>
           </Link>
@@ -151,7 +151,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
         {mobileMenuOpen && (
           <div
             id="mobile-menu"
-            className="md:hidden py-4 border-t border-gray-200"
+            className="md:hidden py-4 border-t border-gray-600 bg-gray-900/95"
           >
             {items.map(item => (
               <NavigationItem

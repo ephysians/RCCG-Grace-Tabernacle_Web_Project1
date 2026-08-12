@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import { Layout } from '@/components/layout'
 import { aboutConfig } from '@/config/about.config'
 
 const WhoWeArePage: React.FC = () => {
@@ -19,8 +18,7 @@ const WhoWeArePage: React.FC = () => {
         <meta name="twitter:description" content={config.description} />
       </Head>
 
-      <Layout>
-        <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50">
           {/* Hero Section */}
           <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,7 +91,6 @@ const WhoWeArePage: React.FC = () => {
             </div>
           </section>
         </main>
-      </Layout>
     </>
   )
 }

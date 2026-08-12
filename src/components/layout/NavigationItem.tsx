@@ -19,7 +19,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
-  const isActive = (href: string) => router.pathname === href
+  const isActive = (href: string) => href === '/' ? router.pathname === '/' : router.pathname === href
 
   const handleToggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen)
@@ -81,10 +81,10 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
   if (!item.children) {
   // Simple navigation link
   const linkClasses = isMobile
-    ? `block px-4 py-2 text-base font-medium transition-colors focus:outline-none focus:bg-gray-50 focus:text-primary-600 font-sans ${
+    ? `block px-4 py-2 text-base font-medium transition-colors focus:outline-none font-sans ${
         isActive(item.href)
-          ? 'text-primary-600 '
-          : 'text-gray-100 hover:text-primary-600 hover:bg-gray-50'
+          ? 'text-primary-400 bg-gray-800'
+          : 'text-white hover:text-primary-300 hover:bg-gray-800'
       }`
     : `
       relative px-4 py-2 text-sm font-medium text-white font-sans
@@ -118,7 +118,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
       <div>
         <button
           onClick={handleToggleDropdown}
-          className="w-full flex items-center justify-between px-4 py-2 text-base font-medium text-white font-sans hover:text-primary-600 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 focus:text-primary-600"
+          className="w-full flex items-center justify-between px-4 py-2 text-base font-medium text-white font-sans hover:text-primary-300 hover:bg-gray-800 focus:outline-none focus:bg-gray-800 focus:text-primary-300"
           aria-expanded={isDropdownOpen}
           aria-controls={`mobile-dropdown-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
           onKeyDown={handleKeyDown}

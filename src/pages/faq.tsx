@@ -1,6 +1,5 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { Layout } from '@/components/layout'
 import { Accordion } from '@/components/ui'
 import { FAQ_DATA, FAQ_CATEGORIES, FAQ_PAGE_CONFIG, FAQItem } from '@/config/faq.config'
 
@@ -40,8 +39,7 @@ const FAQPage: NextPage = () => {
         <meta property="og:type" content="website" />
       </Head>
 
-      <Layout>
-        <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50">
           {/* Hero Section */}
           <section className="bg-gradient-to-br from-primary-600 to-primary-950 text-white py-16">
             <div className="container mx-auto px-4">
@@ -212,7 +210,6 @@ const FAQPage: NextPage = () => {
             </div>
           </section>
         </main>
-      </Layout>
     </>
   );
 }

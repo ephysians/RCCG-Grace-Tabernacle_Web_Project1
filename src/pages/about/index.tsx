@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Layout } from '@/components/layout'
 import { aboutNavigationItems } from '@/config/about.config'
 
 const AboutPage: React.FC = () => {
@@ -19,8 +18,7 @@ const AboutPage: React.FC = () => {
         <meta name="twitter:description" content="Learn about RCCG Grace Tabernacle - our vision, mission, beliefs, leadership, and story. Discover who we are and what we stand for as a Christian community." />
       </Head>
 
-      <Layout>
-        <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50">
           {/* Hero Section */}
           <section className="bg-gradient-to-r from-primary-600 to-primary-950 text-white py-16">
             <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
@@ -118,7 +116,6 @@ const AboutPage: React.FC = () => {
             </div>
           </section>
         </main>
-      </Layout>
     </>
   )
 }
