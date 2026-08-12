@@ -8,8 +8,8 @@ interface AboutSectionProps {
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ className = '' }) => {
-  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ triggerOnce: true })
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
 
   return (
     <section className={`py-16 lg:py-20 bg-white dark:bg-gray-900 ${className}`} aria-labelledby="about-title">

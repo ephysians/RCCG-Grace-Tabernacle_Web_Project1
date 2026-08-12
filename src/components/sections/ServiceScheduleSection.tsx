@@ -7,8 +7,8 @@ interface ServiceScheduleSectionProps {
 }
 
 export const ServiceScheduleSection: React.FC<ServiceScheduleSectionProps> = ({ services }) => {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ triggerOnce: true })
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation<HTMLElement>({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
   return (
     <section className="py-16 lg:py-20 bg-white dark:bg-gray-900" aria-labelledby="services-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
