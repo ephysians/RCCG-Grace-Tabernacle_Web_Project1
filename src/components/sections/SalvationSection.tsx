@@ -4,8 +4,8 @@ import { salvationConfig } from '../../config/salvation.config'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export const SalvationSection: React.FC = () => {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ triggerOnce: true })
-  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation<HTMLElement>({ triggerOnce: true })
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
   return (
     <section className="py-16 bg-white dark:bg-gray-900" aria-labelledby="salvation-section-title">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

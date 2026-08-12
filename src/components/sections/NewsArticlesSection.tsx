@@ -9,8 +9,8 @@ interface NewsArticlesSectionProps {
 }
 
 export const NewsArticlesSection: React.FC<NewsArticlesSectionProps> = ({ articles }) => {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ triggerOnce: true })
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-800" aria-labelledby="news-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

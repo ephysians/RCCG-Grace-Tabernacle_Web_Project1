@@ -9,8 +9,8 @@ interface EventsSectionProps {
 }
 
 export const EventsSection: React.FC<EventsSectionProps> = ({ events }) => {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ triggerOnce: true })
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ triggerOnce: true })
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation<HTMLDivElement>({ triggerOnce: true })
   return (
     <section className="py-16 bg-white dark:bg-gray-900" aria-labelledby="events-section-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
